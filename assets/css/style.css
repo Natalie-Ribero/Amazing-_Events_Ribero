@@ -4,7 +4,19 @@
     padding: 0;
 }
 
+body {
+    background-color: rgb(119, 119, 119) !important;
+}
+
 .bajoHeader {
     display: flex;
     flex-wrap: wrap;
+}
+
+a[href="#"] {
+    background-color: rgb(253, 148, 141) !important ;
+}
+
+a:hover {
+    background-color:  rgb(161, 65, 58) !important ;
 }
