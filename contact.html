@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,21 +14,81 @@
 
 <body>
     <header>
-
-
-        <div class="text-center text-white bg-dark p-5">
+        <nav class="navbar navbar-expand-lg bg-black">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="./assets/img/logoAmazingEvents.png" alt="Bootstrap" width="40" height="30">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
+                        <li class="nav-item">
+                            <a class="nav-link active text-white bg-danger" aria-current="page"
+                                href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-white bg-danger" aria-current="page"
+                                href="./upcomingEvents.html">Upcoming Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-white bg-danger" aria-current="page"
+                                href="./pastEvents.html">Past Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-white bg-danger" aria-current="page"
+                                href="./contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-white bg-danger" aria-current="page"
+                                href="./stats.html">Stats</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="text-center text-white p-5 colorCarrusel">
             <!-- Carrusel -->
-            <div class="row">
+            <div class="row carrusel">
                 <div class="col">
-                    1 of 1
+                    <div id="carouselExample" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <h2>Home</h2>
+                            </div>
+                            <div class="carousel-item">
+                                <h2>Upcoming Events</h2>
+                            </div>
+                            <div class="carousel-item">
+                                <h2>Past Events</h2>
+                            </div>
+                            <div class="carousel-item">
+                                <h2>Contact Us</h2>
+                            </div>
+                            <div class="carousel-item">
+                                <h2>Stats</h2>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev bg-black" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next bg-black" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-
     </header>
 
     <main>
-
         <div class="container bg-danger p-5 text-center">
             <!-- Tarjetas -->
             <div class="row">
@@ -47,22 +108,23 @@
                 </div>
             </div>
         </div>
-
     </main>
 
     <footer>
         <div class="text-center bg-light">
             <div class="row">
                 <!-- Redes sociales -->
-                <div class="col">
-                    1 of 3
+                <div class="col rs">
+                    <img src="./assets/img/whatsapp.png">
+                    <img src="./assets/img/instagram.jpg">
+                    <img src="./assets/img/facebook.png">
                 </div>
                 <!-- Vacio -->
                 <div class="col">
                 </div>
                 <!-- Cohort -->
                 <div class="col">
-                    3 of 3
+                    Cohort
                 </div>
             </div>
         </div>

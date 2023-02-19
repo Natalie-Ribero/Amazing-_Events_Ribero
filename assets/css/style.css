@@ -8,7 +8,6 @@ div form{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    border: 1px solid rgb(255, 251, 0);
     gap: 2vw;
 
 }
@@ -22,9 +21,19 @@ h2{
 }
 
 .category {
-    height: 2vw;
+    height: 3vw;
+    background-color: brown;
 }
 
 .rs img{
     width: 2vw;
 }
+
+th, td {
+    border: 1px solid red;
+}
+
+.colorCarrusel {
+    background-color: rgb(209, 68, 68);
+}
+
