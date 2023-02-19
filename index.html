@@ -14,67 +14,71 @@
 
 <body>
     <header>
-
-        <nav class="navbar navbar-expand-lg bg-black">
-            <!--Barra de navegacion -->
-            <div class="row">
-                <!-- Logo -->
-                <div class="col-4">
-                    <a class="navbar-brand col-7" href="./index.html">
-                        <img src="./assets/img/logoAmazingEvents.png" alt="Bootstrap" width="70" height="24">
-                    </a>
-                    <button class="navbar-toggler bg-danger" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-                <!-- Vacio -->
-                <div class="col-4">
-                </div>
-                <!-- elementos a -->
-                <div class="col-4">
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
-                            <li class="nav-item">
-                                <a class="nav-link active bg-danger text-white" aria-current="page"
-                                    href="./index.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active bg-danger text-white" aria-current="page" href="#">Upcoming
-                                    Events</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active bg-danger text-white" aria-current="page"
-                                    href="./pastEvents.html">Past Events</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active bg-danger text-white" aria-current="page"
-                                    href="./contact.html">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active bg-danger text-white" aria-current="page"
-                                    href="./stats.html">Stats</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+        <nav class="navbar navbar-expand-lg bg-danger">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
+                  <li class="nav-item">
+                    <a class="nav-link active text-white bg-black" aria-current="page" href="./index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text-white bg-black" aria-current="page" href="./upcomingEvents.html">Upcoming Events</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text-white bg-black" aria-current="page" href="./pastEvents.html">Past Events</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text-white bg-black" aria-current="page" href="./contact.html">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text-white bg-black" aria-current="page" href="./stats.html">Stats</a>
+                  </li>
+                </ul>
+              </div>
             </div>
-        </nav>
-
-
-        <div class="text-center text-white bg-dark p-5">
+          </nav>
+        <div class="text-center text-white bg-primary p-5">
             <!-- Carrusel -->
-            <div class="row">
+            <div class="row carrusel">
                 <div class="col">
-                    1 of 1
+                    <div id="carouselExample" class="carousel slide">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <h2>Home</h2>
+                          </div>
+                          <div class="carousel-item">
+                            <h2>Upcoming Events</h2>
+                          </div>
+                          <div class="carousel-item">
+                            <h2>Past Events</h2>
+                          </div>
+                          <div class="carousel-item">
+                            <h2>Contact Us</h2>
+                          </div>
+                          <div class="carousel-item">
+                            <h2>Stats</h2>
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev bg-black" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next bg-black" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
                 </div>
             </div>
         </div>
 
         <div class="text-center text-white bg-secondary p-1">
             <!-- Category -->
-            <div class="row">
+            <div class="row category">
                 <div class="col">
                     <label>Category
                         <input type="checkbox">
@@ -95,10 +99,6 @@
                 <div class="col">
                 </div>
                 <div class="col">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -135,8 +135,10 @@
         <div class="text-center bg-light">
             <div class="row">
                 <!-- Redes sociales -->
-                <div class="col">
-                    1 of 3
+                <div class="col rs">
+                    <img src="./assets/img/whatsapp.png">
+                    <img src="./assets/img/instagram.jpg">
+                    <img src="./assets/img/facebook.png">
                 </div>
                 <!-- Vacio -->
                 <div class="col">
