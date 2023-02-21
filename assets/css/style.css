@@ -48,10 +48,25 @@ img[alt="Amazing Events"] {
 }
 
 footer {
-    bottom: 0 !important;
+    display: flex;
+    flex-direction: column;
+
 }
 
-th, td {
-    border: 1px solid greenyellow;
-    margin: 1vw;
+.tableContainer{
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    background-color: rgba(33, 179, 45, 0.151);
+    border: 1px solid rgba(0, 255, 76, 0.678) !important;
+    margin: 1.5vw;
+}
+
+td,
+th {
+    padding: .5vw;
+    border: 1px solid rgba(0, 255, 76, 0.678) !important;
+    text-align: center;
 }
