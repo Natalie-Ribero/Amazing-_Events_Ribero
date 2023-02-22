@@ -83,11 +83,6 @@ a img {
     transform: rotate(180deg);
 }
 
-div[class="card"] {
-    margin-left: 5vw;
-    margin-right: 5vw;
-}
-
 .category {
     width: 100vw;
     height: 15vh;
@@ -95,4 +90,8 @@ div[class="card"] {
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center
+}
+
+.tarjetas {
+    display: flex;
 }
