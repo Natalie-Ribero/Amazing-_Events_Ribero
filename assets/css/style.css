@@ -50,6 +50,7 @@ img[alt="Amazing Events"] {
 footer {
     display: flex;
     flex-direction: column;
+    background-color: blueviolet;
 
 }
 
