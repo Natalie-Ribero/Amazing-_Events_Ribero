@@ -5,7 +5,10 @@
 }
 
 body {
-    background-color: crimson !important;
+    background-color: crimson;
+}
+
+main {display: flex;
 }
 
 div form{
@@ -16,12 +19,8 @@ div form{
 
 }
 
-.carrusel {
-    height: 7vw;
-}
-
 h2{
-    font-size: 5vw !important;
+    font-size: 5vw;
 }
 
 .category {
@@ -33,18 +32,16 @@ h2{
     width: 2vw;
 }
 
-.colorCarrusel {
-    background-color: rgb(209, 68, 68);
-}
-
 li a[href="#"] {
-    background-color: rgb(139, 0, 0) !important;
+    background-color: rgb(112, 6, 6) !important;
     border: 1px solid red;
 }
+ li a {
+    text-align: center;
+ }
 
-img[alt="Amazing Events"] {
-    margin-right: 2vw;
-    width: 5vw;
+img[src="./assets/img/logoAmazingEvents.png"] {
+    width: 50vw !important;
 }
 
 footer {
@@ -61,14 +58,13 @@ footer {
 
 table {
     background-color: rgba(33, 179, 45, 0.151);
-    border: 1px solid rgba(0, 255, 76, 0.678) !important;
     margin: 1.5vw;
 }
 
 td,
 th {
     padding: .5vw;
-    border: 1px solid rgba(0, 255, 76, 0.678) !important;
+    border: 1px solid rgb(0, 0, 0);
     text-align: center;
 }
 
@@ -76,4 +72,9 @@ th {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #EF5350;
+}
+
+a[role="button"] {
+    background-color: #EF5350;
 }
