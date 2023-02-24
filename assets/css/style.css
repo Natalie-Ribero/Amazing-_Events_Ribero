@@ -13,7 +13,6 @@ div form {
     flex-wrap: wrap;
     flex-direction: column;
     gap: 2vw;
-
 }
 
 h2 {
@@ -82,6 +81,10 @@ a img {
     align-content: center
 }
 
+form[role="search"] {
+    margin-bottom: 1vh;
+}
+
 .tarjetas {
     display: flex;
     margin-top: 2vh;
@@ -93,23 +96,14 @@ a img {
     margin-bottom: 2vh;
 }
 
-/* /* header{
-    height: 15vw;
-} */
-
 .category{
     height: max-content
 }
 
-/* main {
-    height: 70vh;
-} */ */
-
 footer {
-    /* height: 5vh; */
     display: flex;
     flex-direction: column;
-    background-color: blueviolet;
+    background-color: rgb(219, 14, 14);
 
 }
 
@@ -132,3 +126,4 @@ footer {
 .cohorte {
     font-size: 3vh;
 }
+
