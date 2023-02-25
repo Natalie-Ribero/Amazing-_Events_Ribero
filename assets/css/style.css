@@ -167,6 +167,11 @@ footer {
     margin: 2px;
 }
 
+
+header {
+    margin-bottom: 2vh;
+}
+
 @media (min-width: 990px) {
 
     img[src="./assets/img/logoAmazingEvents.png"] {
