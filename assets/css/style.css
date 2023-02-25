@@ -127,3 +127,11 @@ footer {
     font-size: 3vh;
 }
 
+@media (min-width: 600px) {
+    footer{
+        background-color: black;
+    }
+
+    
+    
+}
