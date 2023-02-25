@@ -151,9 +151,12 @@ footer {
 }
 
 .cuadro2 {
+    display: flex;
     background-color: rgb(94, 255, 0);
     width: 40vw;
     height: 40vw;
+    text-align: center;
+    flex-direction: column;
 }
 
 .detailsHeader{
@@ -162,6 +165,10 @@ footer {
 
 .detailsFooter {
     height: 5vh;
+}
+
+.cuadro2 p{
+    margin: 2px;
 }
 
 @media (min-width: 990px) {
