@@ -19,11 +19,6 @@ h2 {
     font-size: 5vw;
 }
 
-.category {
-    height: 3vw;
-    background-color: brown;
-}
-
 li a[href="#"] {
     background-color: rgb(112, 6, 6) !important;
     border: 1px solid red;
@@ -74,6 +69,7 @@ a img {
 }
 
 .category {
+    height: 3vw;
     width: 100vw;
     display: flex;
     flex-wrap: wrap;
