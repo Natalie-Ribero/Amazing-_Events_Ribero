@@ -127,11 +127,37 @@ footer {
     font-size: 3vh;
 }
 
-@media (min-width: 600px) {
-    footer{
-        background-color: black;
+@media (min-width: 990px) {
+
+    img[src="./assets/img/logoAmazingEvents.png"] {
+        width: 15vw !important;
+    }
+    
+    .rrss img {
+        width: 2vw;
     }
 
+    header, .contactHeader{
+        height: 22vh;
+    }
+    .category{
+        height: 10vh;
+    }
+    main {
+        height: 63vh;
+    }
+
+    footer {
+        height: 5vh;
+    }
+
+    .tarjetas,  .tarjetas1 {
+        height: 25rem;
+    }
+    
+    .contactMain{ 
+        height: 73vh;
+    }
     
     
 }
