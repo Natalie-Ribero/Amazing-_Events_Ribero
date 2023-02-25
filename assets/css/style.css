@@ -69,7 +69,6 @@ a img {
 }
 
 .category {
-    height: 3vw;
     width: 100vw;
     display: flex;
     flex-wrap: wrap;
@@ -92,7 +91,7 @@ form[role="search"] {
     margin-bottom: 2vh;
 }
 
-.category{
+.category {
     height: max-content;
 }
 
@@ -103,15 +102,15 @@ footer {
 
 }
 
-.contactHeader{ 
+.contactHeader {
     height: 15vh;
 }
 
-.contactMain{ 
+.contactMain {
     height: 80vh;
 }
 
-.contactFooter{ 
+.contactFooter {
     height: 5vh;
 }
 
@@ -155,7 +154,7 @@ footer {
     flex-direction: column;
 }
 
-.detailsHeader{
+.detailsHeader {
     height: 5vh;
 }
 
@@ -163,7 +162,7 @@ footer {
     height: 5vh;
 }
 
-.cuadro2 p{
+.cuadro2 p {
     margin: 2px;
 }
 
@@ -177,17 +176,20 @@ header {
     img[src="./assets/img/logoAmazingEvents.png"] {
         width: 15vw !important;
     }
-    
+
     .rrss img {
         width: 2vw;
     }
 
-    header, .contactHeader{
+    header,
+    .contactHeader {
         height: 22vh;
     }
-    .category{
+
+    .category {
         height: 10vh;
     }
+
     main {
         height: 63vh;
     }
@@ -196,14 +198,15 @@ header {
         height: 5vh;
     }
 
-    .tarjetas,  .tarjetas1 {
+    .tarjetas,
+    .tarjetas1 {
         height: 25rem;
     }
-    
-    .contactMain{ 
+
+    .contactMain {
         height: 73vh;
     }
-    
+
     .tableContainer {
         height: max-content;
     }
@@ -214,7 +217,7 @@ header {
         align-items: center;
         height: 90vh;
     }
-    
+
     .details {
         display: flex;
         background-color: #EF5350;
@@ -224,25 +227,31 @@ header {
         align-items: center;
         flex-direction: row;
     }
-    
+
     .cuadro1 {
         background-color: aqua;
         width: 20vw;
         height: 20vw;
-        box-shadow: -19px -16px 25px 4px rgba(0,0,0,0.47);
+        box-shadow: -19px -16px 25px 4px rgba(0, 0, 0, 0.47);
     }
-    
+
     .cuadro2 {
         background-color: rgb(94, 255, 0);
         width: 20vw;
         height: 20vw;
     }
-    
-    .detailsHeader{
+
+    .detailsHeader {
         height: 5vh;
     }
-    
+
     .detailsFooter {
         height: 5vh;
+    }
+
+    .botonBuscar {
+        width: 30vw;
+        flex-direction: row;
+        align-content: center
     }
 }
