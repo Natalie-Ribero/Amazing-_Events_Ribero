@@ -97,7 +97,7 @@ form[role="search"] {
 }
 
 .category{
-    height: max-content
+    height: max-content;
 }
 
 footer {
@@ -125,6 +125,43 @@ footer {
 
 .cohorte {
     font-size: 3vh;
+}
+
+.detailsMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.details {
+    display: flex;
+    background-color: #EF5350;
+    width: 50vw;
+    height: 90vw;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cuadro1 {
+    background-color: aqua;
+    width: 40vw;
+    height: 40vw;
+}
+
+.cuadro2 {
+    background-color: rgb(94, 255, 0);
+    width: 40vw;
+    height: 40vw;
+}
+
+.detailsHeader{
+    height: 5vh;
+}
+
+.detailsFooter {
+    height: 5vh;
 }
 
 @media (min-width: 990px) {
@@ -159,5 +196,43 @@ footer {
         height: 73vh;
     }
     
+    .tableContainer {
+        height: max-content;
+    }
+
+    .detailsMain {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+    }
     
+    .details {
+        display: flex;
+        background-color: #EF5350;
+        width: 45vw;
+        height: 25vw;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    .cuadro1 {
+        background-color: aqua;
+        width: 20vw;
+        height: 20vw;
+    }
+    
+    .cuadro2 {
+        background-color: rgb(94, 255, 0);
+        width: 20vw;
+        height: 20vw;
+    }
+    
+    .detailsHeader{
+        height: 5vh;
+    }
+    
+    .detailsFooter {
+        height: 5vh;
+    }
 }
