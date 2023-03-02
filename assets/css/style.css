@@ -7,6 +7,17 @@
     border: 1px solid yellowgreen
 }
 
+header {
+    margin-bottom: 2vh;
+}
+
+.nav-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EF5350;
+}
+
 main {
     display: flex;
 }
@@ -52,12 +63,6 @@ th {
     text-align: center;
 }
 
-.nav-2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #EF5350;
-}
 
 a[role="button"] {
     background-color: #EF5350;
@@ -75,11 +80,17 @@ a img {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    align-content: center
+    align-content: center;
+    height: max-content;
 }
 
 form[role="search"] {
     margin-bottom: 1vh;
+}
+
+.tar {
+    display: flex;
+    justify-content: center;
 }
 
 .tarjetas {
@@ -91,10 +102,6 @@ form[role="search"] {
     display: flex;
     margin-top: 2vh;
     margin-bottom: 2vh;
-}
-
-.category {
-    height: max-content;
 }
 
 footer {
@@ -169,9 +176,6 @@ footer {
 }
 
 
-header {
-    margin-bottom: 2vh;
-}
 
 /* Pantallas grandes */
 
