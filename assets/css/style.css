@@ -202,7 +202,8 @@ footer {
     }
 
     .category {
-        height: 10vh;
+        height: 8vh;
+        align-content: space-around;
     }
 
     main {
