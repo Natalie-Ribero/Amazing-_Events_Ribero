@@ -1,7 +1,10 @@
+/* First mobile */
+/* Normalizacion */
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    border: 1px solid yellowgreen
 }
 
 main {
@@ -69,7 +72,6 @@ a img {
 }
 
 .category {
-    width: 100vw;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -171,7 +173,14 @@ header {
     margin-bottom: 2vh;
 }
 
+/* Pantallas grandes */
+
 @media (min-width: 990px) {
+
+    body {
+        max-width: 100vw;
+        max-height: 100vh;
+    }
 
     img[src="./assets/img/logoAmazingEvents.png"] {
         width: 15vw !important;
