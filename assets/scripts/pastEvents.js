@@ -1,0 +1,1 @@
+let pastEvents = events.filter(event => event.date < currentDate);
