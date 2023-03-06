@@ -26,10 +26,6 @@ header {
     height: max-content;
 }
 
-.category1{
-    display: flex;
-}
-
 
 main {
     display: flex;
@@ -185,7 +181,7 @@ footer {
 
 /* Pantallas grandes */
 
-@media (min-width: 990px) {
+@media (min-width: 600px) {
 
 
     img[src="./assets/img/logoAmazingEvents.png"] {
@@ -220,7 +216,7 @@ footer {
 
     .contenedorTar{
         display: flex;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
     }
