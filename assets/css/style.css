@@ -78,7 +78,7 @@ li a {
 
 img[src="./assets/img/logoAmazingEvents.png"] {
     width: 50vw !important;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     opacity: .5;
     border-radius: 7px;
 }
@@ -93,15 +93,16 @@ img[src="./assets/img/logoAmazingEvents.png"] {
 }
 
 table {
-    background-color: rgba(33, 179, 45, 0.151);
+    background-color: rgba(255, 255, 255, 0.151);
     margin: 1.5vw;
 }
 
 td,
 th {
     padding: .5vw;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
     text-align: center;
+    color: white;
 }
 
 a img {
