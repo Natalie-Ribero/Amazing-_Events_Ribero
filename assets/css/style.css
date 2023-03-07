@@ -110,18 +110,6 @@ footer {
 
 }
 
-.contactHeader {
-    height: 15vh;
-}
-
-.contactMain {
-    height: 80vh;
-}
-
-.contactFooter {
-    height: 5vh;
-}
-
 .rrss img {
     width: 7vw;
 }
@@ -160,14 +148,6 @@ footer {
     height: 40vh;
     text-align: center;
     flex-direction: column;
-}
-
-.detailsHeader {
-    height: 5vh;
-}
-
-.detailsFooter {
-    height: 5vh;
 }
 
 .cuadro2 p {
@@ -213,15 +193,6 @@ footer {
         width: 2vw;
     }
 
-    header,
-    .contactHeader {
-        height: 22vh;
-    }
-
-    .contactMain {
-        height: 73vh;
-    }
-
     .tableContainer {
         height: max-content;
     }
@@ -254,14 +225,6 @@ footer {
         background-color: rgb(94, 255, 0);
         width: 20vw;
         height: 20vw;
-    }
-
-    .detailsHeader {
-        height: 5vh;
-    }
-
-    .detailsFooter {
-        height: 5vh;
     }
 
     .botonBuscar {
