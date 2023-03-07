@@ -201,6 +201,10 @@ footer {
 
     /* Altura en paginas */
 
+    .estilocard img {
+        height: 25vh;
+    }
+
     img[src="./assets/img/logoAmazingEvents.png"] {
         width: 15vw !important;
     }
