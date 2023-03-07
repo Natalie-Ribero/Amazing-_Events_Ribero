@@ -31,6 +31,13 @@ main {
     display: flex;
 }
 
+#contenedorCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3vh;
+}
+
 div form {
     display: flex;
     flex-wrap: wrap;
@@ -95,16 +102,6 @@ form[role="search"] {
     justify-content: center;
 }
 
-.tarjetas {
-    display: flex;
-    margin-top: 2vh;
-}
-
-.tarjetas1 {
-    display: flex;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-}
 
 footer {
     display: flex;
@@ -207,23 +204,6 @@ footer {
 
     footer {
         height: 5vh;
-    }
-
-    .tarjetas,
-    .tarjetas1 {
-        height: 25rem;
-    }
-
-    .contenedorTar{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-    }
-    .tarjetas1 {
-        display: flex;
-        margin-top: 2vh;
-        margin-bottom: 0vh;
     }
 
     .contactMain {
