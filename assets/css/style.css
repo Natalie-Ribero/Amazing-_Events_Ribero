@@ -7,6 +7,10 @@
     /* border: 1px solid yellowgreen */
 }
 
+a p {
+    font-size: 7vw;
+}
+
 body {
     background: rgb(11, 137, 177);
     background: linear-gradient(90deg, rgba(11, 137, 177, 1) 0%, rgba(87, 47, 150, 1) 43%, rgba(108, 136, 235, 1) 100%);
@@ -28,6 +32,7 @@ header {
     align-items: center;
     background: rgb(11, 137, 177);
     background: linear-gradient(90deg, rgba(11, 137, 177, 1) 0%, rgba(87, 47, 150, 1) 43%, rgba(108, 136, 235, 1) 100%);
+    border-bottom: 1px solid rgb(255, 255, 255);
 }
 
 .category {
@@ -73,7 +78,13 @@ li a {
 
 img[src="./assets/img/logoAmazingEvents.png"] {
     width: 50vw !important;
-    background-color: black;
+    background-color: white;
+    opacity: .5;
+    border-radius: 7px;
+}
+
+.nav-item a {
+    border-radius: 7px;
 }
 
 .tableContainer {
@@ -157,6 +168,10 @@ footer {
 
 .cuadro2 p {
     margin: 2px;
+}
+
+label {
+    color: white;
 }
 
 @media (min-width: 990px) {
