@@ -181,20 +181,24 @@ footer {
 @media (min-width: 600px) {
 
     /* Altura en paginas */
-    .headerIndex, .upcomingHeader {
-        height: 20vh;
+    .headerIndex,
+    .upcomingHeader,
+    .headerPast {
+        height: max-content;
     }
 
-    .categoryIndex, .categoryUpcoming {
+    .categoryIndex,
+    .categoryUpcoming,
+    .categoryPast {
         height: 10vh;
     }
-    .mainIndex, .upcomingMain{
-       height: max-content;
+
+    .mainIndex,
+    .upcomingMain,
+    .mainPast {
+        height: max-content;
     }
 
-    .footerIndex{
-        height: 5vh;
-    }
     /* Altura en paginas */
 
     img[src="./assets/img/logoAmazingEvents.png"] {
@@ -208,18 +212,6 @@ footer {
     header,
     .contactHeader {
         height: 22vh;
-    }
-
-    .category {
-        height: 10vh;
-    }
-
-    main {
-        height: 63vh;
-    }
-
-    footer {
-        height: 5vh;
     }
 
     .contactMain {
