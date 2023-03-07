@@ -5,9 +5,11 @@ for (let event of events) {
   cards += `<div class="card estilocard" style="width: 18rem;">
     <img src= ${event.image} alt="Imagen de evento">
     <div class="card-body">
-    <h5 class="card-title">${event.name}</h5>     
+    <h5 class="card-title">${event.name}</h5>
+    <h6 class="card-title">${event.date}</h6>    
+    <h6 class="card-title">${event.price} USD</h6>     
     <p class="card-text">${event.description}</p>
-    <a href="mailto:${event.price}" class="btn btn-primary">Mandame un email</a>
+    <a class="btn btn-primary">Mandame un email</a>
     </div>
   </div>`
 }
