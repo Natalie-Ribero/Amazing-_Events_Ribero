@@ -1,8 +1,8 @@
-let tarjetas = ''
+let cards = ''
 const divCards = document.getElementById('contenedorCards');
 
 for (let event of events) {
-  tarjetas += `<div class="card estilocard" style="width: 18rem;">
+  cards += `<div class="card estilocard" style="width: 18rem;">
     <img src= ${event.image} alt="Imagen de evento">
     <div class="card-body">
     <h5 class="card-title">${event.name}</h5>     
@@ -11,6 +11,6 @@ for (let event of events) {
     </div>
   </div>`
 }
-divCards.innerHTML = tarjetas
-console.log(tarjetas);
+divCards.innerHTML = cards
+console.log(cards);
 
