@@ -1,5 +1,5 @@
 let tarjetas = ''
-const mainHome = document.getElementById('cards')
+const divCards = document.getElementsByClassName('contenedorCards');
 
 for (let event of events) {
   tarjetas += `<div class="card" style="width: 18rem;">
@@ -13,6 +13,4 @@ for (let event of events) {
 
 console.log(tarjetas);
 
-mainHome.innerHTML = tarjetas
-
-const cardsIndividual = document.getElementsByTagNameNS('div')
+divCards.innerHTML = tarjetas
