@@ -4,7 +4,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    border: 1px solid yellowgreen
+    /* border: 1px solid yellowgreen */
 }
 
 header {
@@ -180,6 +180,22 @@ footer {
 
 @media (min-width: 600px) {
 
+    /* Altura en paginas */
+    .headerIndex, .upcomingHeader {
+        height: 20vh;
+    }
+
+    .categoryIndex, .categoryUpcoming {
+        height: 10vh;
+    }
+    .mainIndex, .upcomingMain{
+       height: max-content;
+    }
+
+    .footerIndex{
+        height: 5vh;
+    }
+    /* Altura en paginas */
 
     img[src="./assets/img/logoAmazingEvents.png"] {
         width: 15vw !important;
