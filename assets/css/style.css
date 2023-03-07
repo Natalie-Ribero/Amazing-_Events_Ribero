@@ -7,15 +7,27 @@
     /* border: 1px solid yellowgreen */
 }
 
+body {
+    background: rgb(11, 137, 177);
+    background: linear-gradient(90deg, rgba(11, 137, 177, 1) 0%, rgba(87, 47, 150, 1) 43%, rgba(108, 136, 235, 1) 100%);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 header {
     margin-bottom: 2vh;
+}
+
+.claseBg {
+    background: rgb(63, 94, 251);
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
 }
 
 .nav-2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #EF5350;
+    background: rgb(11, 137, 177);
+    background: linear-gradient(90deg, rgba(11, 137, 177, 1) 0%, rgba(87, 47, 150, 1) 43%, rgba(108, 136, 235, 1) 100%);
 }
 
 .category {
@@ -47,6 +59,7 @@ div form {
 
 h2 {
     font-size: 5vw;
+    color: white;
 }
 
 li a[href="#"] {
@@ -60,6 +73,7 @@ li a {
 
 img[src="./assets/img/logoAmazingEvents.png"] {
     width: 50vw !important;
+    background-color: black;
 }
 
 .tableContainer {
@@ -79,19 +93,9 @@ th {
     text-align: center;
 }
 
-
-a[role="button"] {
-    background-color: #EF5350;
-}
-
 a img {
     width: 5vw;
 }
-
-.rotate {
-    transform: rotate(180deg);
-}
-
 
 form[role="search"] {
     margin-bottom: 1vh;
@@ -106,7 +110,8 @@ form[role="search"] {
 footer {
     display: flex;
     flex-direction: column;
-    background-color: rgb(219, 14, 14);
+    background: rgb(63, 94, 251);
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
 
 }
 
@@ -154,11 +159,21 @@ footer {
     margin: 2px;
 }
 
+@media (min-width: 990px) {
 
+    #navbarSupportedContent {
+        flex-grow: 0;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
 
 /* Pantallas grandes */
-
 @media (min-width: 600px) {
+
+    .nav-2 a {
+        font-weight: 500;
+    }
 
     /* Altura en paginas */
     .headerIndex,
