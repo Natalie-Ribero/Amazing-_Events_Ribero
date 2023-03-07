@@ -8,8 +8,9 @@ for (let event of upcomingEvents) {
     <img src= ${event.image} alt="Imagen de evento">
     <div class="card-body">
     <h5 class="card-title">${event.name}</h5>     
+    <h6 class="card-title">${event.price} USD</h6>   
     <p class="card-text">${event.description}</p>
-    <a href="mailto:${event.price}" class="btn btn-primary">Mandame un email</a>
+    <a class="btn btn-primary">Ver mas</a>
     </div>
   </div>`
 }

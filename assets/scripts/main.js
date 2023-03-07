@@ -9,7 +9,7 @@ for (let event of events) {
     <h6 class="card-title">${event.date}</h6>    
     <h6 class="card-title">${event.price} USD</h6>     
     <p class="card-text">${event.description}</p>
-    <a class="btn btn-primary">Mandame un email</a>
+    <a class="btn btn-primary">Ver mas</a>
     </div>
   </div>`
 }
