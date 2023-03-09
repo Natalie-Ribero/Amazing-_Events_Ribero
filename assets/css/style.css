@@ -279,4 +279,14 @@ label {
         flex-direction: row;
         align-content: center
     }
-}
+
+    .card:hover{
+        transform: translate(-10px, -10px);
+        transition:transform .5s;
+    }
+
+    label{
+        margin-right: 2vw;
+        margin-bottom: 2vh;
+     }
+    }
