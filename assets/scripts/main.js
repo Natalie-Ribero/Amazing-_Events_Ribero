@@ -16,3 +16,12 @@ for (let event of events) {
 divCards.innerHTML = cards
 console.log(cards);
 
+// let pastEvents = events.filter(event => event.date < currentDate);
+
+let foodFair = events.filter(event => event.category === "Food Fair")
+let museum = events.filter(event => event.category === "Museum")
+let customeParty = events.filter(event => event.category === "Costume Party")
+let musicConcert = events.filter(event => event.category === "Music Concert")
+let race = events.filter(event => event.category === "Race") 
+let bookExchange = events.filter(event => event.category === "Book Exchange")
+let cinema = events.filter(event => event.category === "Cinema")
