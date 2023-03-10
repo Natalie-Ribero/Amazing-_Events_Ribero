@@ -25,3 +25,4 @@ let musicConcert = events.filter(event => event.category === "Music Concert")
 let race = events.filter(event => event.category === "Race") 
 let bookExchange = events.filter(event => event.category === "Book Exchange")
 let cinema = events.filter(event => event.category === "Cinema")
+
