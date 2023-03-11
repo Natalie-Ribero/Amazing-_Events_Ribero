@@ -23,9 +23,12 @@ let race = events.filter(event => event.category === "Race")
 let bookExchange = events.filter(event => event.category === "Book Exchange")
 let cinema = events.filter(event => event.category === "Cinema")
 
-let categorias = document.getElementById('categorias')
+let categorias = document.getElementById('categorias');
 
-function 
+categorias.addEventListener('click', (pepito)=>{
+  console.log(pepito);
+  console.log('toque');
+} )
 
-categorias.addEventListener('click', (e)=> )
+categorias.target
 
