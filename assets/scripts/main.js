@@ -1,7 +1,7 @@
 let cards = ''
 const divCards = document.getElementById('contenedorCards');
 
-function armarCards(array){
+function armarCards(array) {
   for (let event of array) {
     cards += `<div class="card estilocard" style="width: 18rem;">
       <img src= ${event.image} alt="Imagen de evento">
@@ -15,27 +15,48 @@ function armarCards(array){
     </div>`
   }
 }
-armarCards(events)
+armarCards(events);
 
 divCards.innerHTML = cards;
 
-let labels = document.querySelectorAll("label");
-console.log = labels
+let labels = Array.from(document.querySelectorAll('input[type="checkbox"]'))
 
-// let foodFair = events.filter(event => event.category === "Food Fair")
-// let museum = events.filter(event => event.category === "Museum")
-// let customeParty = events.filter(event => event.category === "Costume Party")
-// let musicConcert = events.filter(event => event.category === "Music Concert")
-// let race = events.filter(event => event.category === "Race") 
-// let bookExchange = events.filter(event => event.category === "Book Exchange")
-// let cinema = events.filter(event => event.category === "Cinema")
+function filtrarCardsCategory(condicion) {
+  let filtroCategory = events.filter(event => event.category === condicion)
+  return filtroCategory
+}
 
-// let categorias = document.getElementById('categorias');
+labels[0, 1, 2, 3, 4, 5, 6].addEventListener('click', ()=> {
+  filtrarCardsCategory(labels.value)
+})
 
-// categorias.addEventListener('click', (pepito)=>{
-//   console.log(pepito);
-//   console.log('toque');
-// } )
 
-// categorias.target
+// labels[0].addEventListener('change', (e) => {
+//     armarCards(foodFair);
+// })
+
+// labels[1].addEventListener('change', (e) => {
+//   armarCards(museum)
+// })
+
+// labels[2].addEventListener('change', (e) => {
+//   armarCards(customeParty)
+// })
+
+// labels[6].addEventListener('change', (e) => {
+//   armarCards(musicConcert)
+// })
+
+// labels[4].addEventListener('change', (e) => {
+//   armarCards(race)
+// })
+
+// labels[5].addEventListener('change', (e) => {
+//   armarCards(bookExchange)
+// })
+
+// labels[6].addEventListener('change', (e) => {
+//   armarCards(cinema)
+// })
+
 
