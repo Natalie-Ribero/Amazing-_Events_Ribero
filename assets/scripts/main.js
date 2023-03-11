@@ -16,20 +16,21 @@
 
 // divCards.innerHTML = cards;
 
-const food = document.getElementById('food');
-const museum = document.getElementById('museum');
-const party = document.getElementById('party');
-const concert = document.getElementById('concert');
-const race = document.getElementById('race');
-const book = document.getElementById('book');
-const cinema = document.getElementById('cinema');
-const buscar = document.getElementById('buscar');
-const boton = document.getElementById('boton');
+let food = document.getElementById('food');
+let museum = document.getElementById('museum');
+let party = document.getElementById('party');
+let concert = document.getElementById('concert');
+let race = document.getElementById('race');
+let book = document.getElementById('book');
+let cinema = document.getElementById('cinema');
 
-const tarjetas = [];
+let buscar = document.getElementById('buscar');
+let boton = document.getElementById('boton');
+
+let tarjetas = [];
 
 function armarCards(event) {
-  tarjetas += `<div class="card estilocard" style="width: 18rem;">
+   `<div class="card estilocard" style="width: 18rem;">
   <img src= ${event.image} alt="Imagen de evento">
   <div class="card-body">
   <h5 class="card-title">${event.name}</h5>
@@ -41,29 +42,35 @@ function armarCards(event) {
 </div>`
 }
 
-for (let event of events) {
-  if (food.checked && event.category === "Food Fair") {
-    armarCards(event)
-  }
-  if (museum.checked && event.category === "Museum") {
-    armarCards(event)
-  }
-  if (party.checked && event.category === "Costume Party") {
-    armarCards(event)
-  }
-  if (concert.checked && event.category === "Music Concert") {
-    armarCards(event)
-  }
-  if (race.checked && event.category === "Race") {
-    armarCards(event)
-  }
-  if (book.checked && event.category === "Book Exchange") {
-    armarCards(event)
-  }
-  if (cinema.checked && event.category === "Cinema") {
-    armarCards(event)
-  }
-  document.querySelector('#categorias')
-}
 
+// for (let event of events) {
+//   if (food.checked && event.category === "Food Fair") {
+//     armarCards(event)
+//   }
+
+//   if (museum.checked && event.category === "Museum") {
+//     armarCards(event)
+//   }
+
+//   if (party.checked && event.category === "Costume Party") {
+//     armarCards(event)
+//   }
+
+//   if (concert.checked && event.category === "Music Concert") {
+//     armarCards(event)
+//   }
+
+//   if (race.checked && event.category === "Race") {
+//     armarCards(event)
+//   }
+
+//   if (book.checked && event.category === "Book Exchange") {
+//     armarCards(event)
+//   }
+
+//   if (cinema.checked && event.category === "Cinema") {
+//     armarCards(event)
+//   }
+// }
+document.querySelector('#contenedorCards').innerHTML = tarjetas
 
