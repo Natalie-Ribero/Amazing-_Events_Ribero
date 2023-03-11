@@ -16,16 +16,16 @@
 
 // divCards.innerHTML = cards;
 
-let food = document.getElementById('food');
-let museum = document.getElementById('museum');
-let party = document.getElementById('party');
-let concert = document.getElementById('concert');
-let race = document.getElementById('race');
-let book = document.getElementById('book');
-let cinema = document.getElementById('cinema');
+let food = document.querySelector('#food');
+let museum = document.querySelector('#museum');
+let party = document.querySelector('#party');
+let concert = document.querySelector('#concert');
+let race = document.querySelector('#race');
+let book = document.querySelector('#book');
+let cinema = document.querySelector('#cinema');
 
-let buscar = document.getElementById('buscar');
-let boton = document.getElementById('boton');
+let buscar = document.querySelector('#buscar');
+let boton = document.querySelector('#boton');
 
 let tarjetas = [];
 
