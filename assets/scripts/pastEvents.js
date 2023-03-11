@@ -14,5 +14,4 @@ for (let event of pastEvents) {
     </div>
   </div>`
 }
-divCards.innerHTML = cards
-console.log(cards);
+divCards.innerHTML = cards;
