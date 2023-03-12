@@ -19,15 +19,8 @@ let boton = document.querySelector('#boton');
 
 boton.addEventListener('click', (e) =>{
 e.preventDefault()
-let labels = document.querySelector('#labels')
-
-
-let buscar = document.querySelector('#buscar');
-let cardsContainer = document.querySelector('#contenedorCards')
-
 let category = events.filter(event => (event.category === "Food Fair" && food.checked || event.category === "Museum" && museum.checked || event.category === "Costume Party" && party.checked || event.category === "Music Concert" && concert.checked || event.category === "Race" && race.checked || event.category === "Book Exchange" && book.checked || event.category === "Cinema" && cinema.checked))
-
-let cards = '' 
+ cards = '' 
 for (let event of category) {
   cards += `<div class="card estilocard" style="width: 18rem;">
     <img src= ${event.image} alt="Imagen de evento">
@@ -44,7 +37,21 @@ divCards.innerHTML = cards;
 })
 // hasta aca funciona
 
+document.addEventListener("keyup", (e)=>{
 
+  if (e.target.matches("#buscador")){
+
+      document.querySelectorAll(".estilocard").forEach(tarjeta =>{
+
+          tarjeta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+            ?tarjeta.classList.remove("filtro")
+            :tarjeta.classList.add("filtro")
+      })
+
+  }
+
+
+})
 
 
 
