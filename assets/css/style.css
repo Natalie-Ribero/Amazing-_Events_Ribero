@@ -142,6 +142,10 @@ footer {
 
 }
 
+.filtro {
+    display: none;
+}
+
 .rrss img {
     width: 10vw;
     border-radius: 50px;
