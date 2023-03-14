@@ -1,4 +1,3 @@
-let boton = document.querySelector('#boton');
 let food = document.querySelector('#food');
 let museum = document.querySelector('#museum');
 let party = document.querySelector('#party');
@@ -9,18 +8,22 @@ let cinema = document.querySelector('#cinema');
 const divCards = document.getElementById('contenedorCards');
 let cards = ''
 
-    for (let event of events) {
-      cards += `<div class="card estilocard" style="width: 18rem;">
-      <img src= ${event.image} alt="Imagen de evento">
-      <div class="card-body">
-      <h5 class="card-title">${event.name}</h5>
-      <h6 class="card-title"> ${event.date}</h6>
-      <h6 class="card-title">${event.price} USD</h6>
-      <p class="card-text">${event.description}</p>
-      <a href="./details.html?id=${event._id}" class="btn btn-primary">See more</a>
-      </div>
-    </div>`
-    }
+function sumarCardsArray(array) {
+  for (let event of array) {
+    cards += `<div class="card estilocard" style="width: 18rem;">
+    <img src= ${event.image} alt="Imagen de evento">
+    <div class="card-body">
+    <h5 class="card-title">${event.name}</h5>
+    <h6 class="card-title"> ${event.date}</h6>
+    <h6 class="card-title">${event.price} USD</h6>
+    <p class="card-text">${event.description}</p>
+    <a href="./details.html?id=${event._id}" class="btn btn-primary">See more</a>
+    </div>
+  </div>`
+  }
+}
+sumarCardsArray(events);
+
     divCards.innerHTML = cards;
 
 document.addEventListener('click', (e) => {
@@ -30,35 +33,12 @@ document.addEventListener('click', (e) => {
     let category = events.filter(event => (event.category === "Food Fair" && food.checked || event.category === "Museum" && museum.checked || event.category === "Costume Party" && party.checked || event.category === "Music Concert" && concert.checked || event.category === "Race" && race.checked || event.category === "Book Exchange" && book.checked || event.category === "Cinema" && cinema.checked))
 
     cards = ''
-    for (let event of category) {
-      cards += `<div class="card estilocard" style="width: 18rem;">
-           <img src= ${event.image} alt="Imagen de evento">
-           <div class="card-body">
-           <h5 class="card-title">${event.name}</h5> 
-           <h6 class="card-title"> ${event.date}</h6> 
-           <h6 class="card-title">${event.price} USD</h6>       
-           <p class="card-text">${event.description}</p>
-           <a href="./details.html?id=${event.id}" class="btn btn-primary">See more</a>
-           </div>
-         </div>`
-    }
+    sumarCardsArray(category);
     divCards.innerHTML = cards;
 
   } else {
     cards = ''
-    const divCards = document.getElementById('contenedorCards');
-    for (let event of events) {
-      cards += `<div class="card estilocard" style="width: 18rem;">
-      <img src= ${event.image} alt="Imagen de evento">
-      <div class="card-body">
-      <h5 class="card-title">${event.name}</h5> 
-      <h6 class="card-title"> ${event.date}</h6> 
-      <h6 class="card-title">${event.price} USD</h6>       
-      <p class="card-text">${event.description}</p>
-      <a href="./details.html?id=${event._id}" class="btn btn-primary">See more</a>
-      </div>
-    </div>`
-    }
+    sumarCardsArray(events)
     divCards.innerHTML = cards;
   }
 })
