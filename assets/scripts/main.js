@@ -1,7 +1,6 @@
 //Crear categorys
 let labels = document.getElementById('labels1');
-let categorias = data.map(event => event.category);
-console.log(categorias);
+let categorias = events.map(event => event.category);
 let category = new Set(categorias);
 let checkbox = ''
 for (let event of category) {
