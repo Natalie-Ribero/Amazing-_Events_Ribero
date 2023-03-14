@@ -6,7 +6,22 @@ let concert = document.querySelector('#concert');
 let race = document.querySelector('#race');
 let book = document.querySelector('#book');
 let cinema = document.querySelector('#cinema');
+const divCards = document.getElementById('contenedorCards');
+let cards = ''
 
+    for (let event of events) {
+      cards += `<div class="card estilocard" style="width: 18rem;">
+      <img src= ${event.image} alt="Imagen de evento">
+      <div class="card-body">
+      <h5 class="card-title">${event.name}</h5> 
+      <h6 class="card-title"> ${event.date}</h6> 
+      <h6 class="card-title">${event.price} USD</h6>       
+      <p class="card-text">${event.description}</p>
+      <a href="./details.html?id=${event._id}" class="btn btn-primary">See more</a>
+      </div>
+    </div>`
+    }
+    divCards.innerHTML = cards;
 
 document.addEventListener('click', (e) => {
 
@@ -14,13 +29,13 @@ document.addEventListener('click', (e) => {
 
     let category = events.filter(event => (event.category === "Food Fair" && food.checked || event.category === "Museum" && museum.checked || event.category === "Costume Party" && party.checked || event.category === "Music Concert" && concert.checked || event.category === "Race" && race.checked || event.category === "Book Exchange" && book.checked || event.category === "Cinema" && cinema.checked))
 
-    let cards = ''
+    cards = ''
     for (let event of category) {
       cards += `<div class="card estilocard" style="width: 18rem;">
            <img src= ${event.image} alt="Imagen de evento">
            <div class="card-body">
            <h5 class="card-title">${event.name}</h5> 
-           <h6 class="card-title"> ${character.date}</h6> 
+           <h6 class="card-title"> ${event.date}</h6> 
            <h6 class="card-title">${event.price} USD</h6>       
            <p class="card-text">${event.description}</p>
            <a href="./details.html?id=${event.id}" class="btn btn-primary">See more</a>
@@ -30,14 +45,14 @@ document.addEventListener('click', (e) => {
     divCards.innerHTML = cards;
 
   } else {
-    let cards = ''
+    cards = ''
     const divCards = document.getElementById('contenedorCards');
     for (let event of events) {
       cards += `<div class="card estilocard" style="width: 18rem;">
       <img src= ${event.image} alt="Imagen de evento">
       <div class="card-body">
       <h5 class="card-title">${event.name}</h5> 
-      <h6 class="card-title"> ${character.date}</h6> 
+      <h6 class="card-title"> ${event.date}</h6> 
       <h6 class="card-title">${event.price} USD</h6>       
       <p class="card-text">${event.description}</p>
       <a href="./details.html?id=${event._id}" class="btn btn-primary">See more</a>
@@ -88,7 +103,7 @@ document.addEventListener('click', (e) => {
 //     <h5 class="card-title">${event.name}</h5>
 //     <h6 class="card-title">${event.price} USD</h6>
 //     <p class="card-text">${event.description}</p>
-//     <a href="./details.html?id=${event.id}" class="btn btn-primary">See more</a>
+//     <a href="./details.html?id=${event._id}" class="btn btn-primary">See more</a>
 //     </div>
 //   </div>`
 // }
@@ -97,21 +112,21 @@ document.addEventListener('click', (e) => {
 // })
 // hasta aca funciona
 
-// document.addEventListener("keyup", (e) => {
+document.addEventListener("keyup", (e) => {
 
-//   if (e.target.matches("#buscador")) {
+  if (e.target.matches("#buscador")) {
 
-//     document.querySelectorAll(".estilocard").forEach(tarjeta => {
+    document.querySelectorAll(".estilocard").forEach(tarjeta => {
 
-//       tarjeta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
-//         ? tarjeta.classList.remove("filtro")
-//         : tarjeta.classList.add("filtro")
-//     })
+      tarjeta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+        ? tarjeta.classList.remove("filtro")
+        : tarjeta.classList.add("filtro")
+    })
 
-//   }
+  }
 
 
-// })
+})
 
 
 
