@@ -9,9 +9,6 @@ for (let event of category) {
   <input id= '${event.replace(/\s+/g, '')}' type="checkbox">
 </label>`
 }
-
-console.log(checkbox)
-
 labels.innerHTML = checkbox; 
 
 
@@ -40,6 +37,7 @@ function sumarCardsArray(array) {
   </div>`
   }
 }
+
 sumarCardsArray(events);
 
 divCards.innerHTML = cards;
@@ -56,7 +54,7 @@ document.addEventListener('click', (e) => {
 
   } else {
     cards = ''
-    sumarCardsArray(events)
+    sumarCardsArray(events);
     divCards.innerHTML = cards;
   }
 })

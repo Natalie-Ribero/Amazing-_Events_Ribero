@@ -1,7 +1,29 @@
 let upcomingEvents = events.filter(event => event.date > currentDate);
 
-let cards = ''
+//Crear categorys
+let labels = document.getElementById('labels1');
+let categorias = events.map(event => event.category)
+let category = new Set(categorias)
+let checkbox = ''
+for (let event of category) {
+  checkbox +=
+    `<label> ${event}
+  <input id= '${event.replace(/\s+/g, '')}' type="checkbox">
+</label>`
+}
+labels.innerHTML = checkbox; 
+
+
+//Hacer que funcionen los categorys
+let food = document.querySelector('#FoodFair');
+let museum = document.querySelector('#Museum');
+let party = document.querySelector('#CostumeParty');
+let concert = document.querySelector('#MusicConcert');
+let race = document.querySelector('#Race');
+let book = document.querySelector('#BookExchange');
+let cinema = document.querySelector('#Cinema');
 const divCards = document.getElementById('contenedorCards');
+let cards = ''
 
 function sumarCardsArray(array) {
   for (let event of array) {
@@ -17,6 +39,7 @@ function sumarCardsArray(array) {
   </div>`
   }
 }
+
 sumarCardsArray(upcomingEvents);
 
 divCards.innerHTML = cards;
@@ -25,22 +48,18 @@ document.addEventListener('click', (e) => {
 
   if (food.checked || museum.checked || party.checked || concert.checked || race.checked || book.checked || cinema.checked) {
 
-    let category = upcomingEvents.filter(event => (event.category === "Food Fair" && food.checked || event.category === "Museum" && museum.checked || event.category === "Costume Party" && party.checked || event.category === "Music Concert" && concert.checked || event.category === "Race" && race.checked || event.category === "Book Exchange" && book.checked || event.category === "Cinema" && cinema.checked))
+    let categoriaFiltro = upcomingEvents.filter(event => (event.category === "Food Fair" && food.checked || event.category === "Museum" && museum.checked || event.category === "Costume Party" && party.checked || event.category === "Music Concert" && concert.checked || event.category === "Race" && race.checked || event.category === "Book Exchange" && book.checked || event.category === "Cinema" && cinema.checked))
 
     cards = ''
-    sumarCardsArray(category);
-
+    sumarCardsArray(categoriaFiltro);
     divCards.innerHTML = cards;
 
   } else {
     cards = ''
-    const divCards = document.getElementById('contenedorCards');
     sumarCardsArray(upcomingEvents);
     divCards.innerHTML = cards;
   }
 })
-
-
 // hasta aca funciona
 
 document.addEventListener("keyup", (e) => {
@@ -53,8 +72,5 @@ document.addEventListener("keyup", (e) => {
         ? tarjeta.classList.remove("filtro")
         : tarjeta.classList.add("filtro")
     })
-
   }
-
-
 })
