@@ -1,4 +1,3 @@
-
 let currentDate = "2022-01-01";
 let events = [
   {
