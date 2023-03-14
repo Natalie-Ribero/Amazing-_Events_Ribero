@@ -6,24 +6,23 @@ let checkbox = ''
 for (let event of category) {
   checkbox +=
     `<label> ${event}
-  <input id= '' type="checkbox">
+  <input id= '${event.replace(/\s+/g, '')}' type="checkbox">
 </label>`
 }
 
 console.log(checkbox)
-console.log(labels)
 
 labels.innerHTML = checkbox; 
 
 
 //Hacer que funcionen los categorys
-let food = document.querySelector('#food');
-let museum = document.querySelector('#museum');
-let party = document.querySelector('#party');
-let concert = document.querySelector('#concert');
-let race = document.querySelector('#race');
-let book = document.querySelector('#book');
-let cinema = document.querySelector('#cinema');
+let food = document.querySelector('#FoodFair');
+let museum = document.querySelector('#Museum');
+let party = document.querySelector('#CostumeParty');
+let concert = document.querySelector('#MusicConcert');
+let race = document.querySelector('#Race');
+let book = document.querySelector('#BookExchange');
+let cinema = document.querySelector('#Cinema');
 const divCards = document.getElementById('contenedorCards');
 let cards = ''
 
