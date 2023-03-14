@@ -1,3 +1,22 @@
+//Crear categorys
+let labels = document.getElementById('labels1');
+let categorias = events.map(event => event.category)
+let category = new Set(categorias)
+let checkbox = ''
+for (let event of category) {
+  checkbox +=
+    `<label> ${event}
+  <input id= '' type="checkbox">
+</label>`
+}
+
+console.log(checkbox)
+console.log(labels)
+
+labels.innerHTML = checkbox; 
+
+
+//Hacer que funcionen los categorys
 let food = document.querySelector('#food');
 let museum = document.querySelector('#museum');
 let party = document.querySelector('#party');
@@ -24,7 +43,7 @@ function sumarCardsArray(array) {
 }
 sumarCardsArray(events);
 
-    divCards.innerHTML = cards;
+divCards.innerHTML = cards;
 
 document.addEventListener('click', (e) => {
 
