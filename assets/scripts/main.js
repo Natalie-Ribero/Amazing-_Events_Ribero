@@ -8,7 +8,7 @@ for (let event of events) {
     <h5 class="card-title">${event.name}</h5> 
     <h6 class="card-title">${event.price} USD</h6>       
     <p class="card-text">${event.description}</p>
-    <a class="btn btn-primary">See more</a>
+    <a href="./details.html?id=${event._id}" class="btn btn-primary">See more</a>
     </div>
   </div>`
 }

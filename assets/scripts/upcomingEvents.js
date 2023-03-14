@@ -10,7 +10,7 @@ for (let event of upcomingEvents) {
     <h5 class="card-title">${event.name}</h5>     
     <h6 class="card-title">${event.price} USD</h6>   
     <p class="card-text">${event.description}</p>
-    <a class="btn btn-primary">See more</a>
+    <a href="./details.html?id=${event.id}" class="btn btn-primary">See more</a>
     </div>
   </div>`
 }
@@ -33,7 +33,7 @@ for (let event of category) {
     <h5 class="card-title">${event.name}</h5> 
     <h6 class="card-title">${event.price} USD</h6>       
     <p class="card-text">${event.description}</p>
-    <a class="btn btn-primary">See more</a>
+    <a href="./details.html?id=${event.id}" class="btn btn-primary">See more</a>
     </div>
   </div>`
 }
