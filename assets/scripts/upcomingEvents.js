@@ -1,8 +1,8 @@
-let upcomingEvents = events.filter(event => event.date > currentDate);
+let upcomingEvents = data.events.filter(event => event.date > data.currentDate);
 
 //Crear categorys
 let labels = document.getElementById('labels1');
-let categorias = events.map(event => event.category)
+let categorias = data.events.map(event => event.category)
 let category = new Set(categorias)
 let checkbox = ''
 for (let event of category) {
@@ -14,7 +14,7 @@ for (let event of category) {
 labels.innerHTML = checkbox; 
 
 
-//Hacer que funcionen los categorys
+
 let food = document.querySelector('#FoodFair');
 let museum = document.querySelector('#Museum');
 let party = document.querySelector('#CostumeParty');
@@ -60,7 +60,7 @@ document.addEventListener('click', (e) => {
     divCards.innerHTML = cards;
   }
 })
-// hasta aca funciona
+
 
 document.addEventListener("keyup", (e) => {
 

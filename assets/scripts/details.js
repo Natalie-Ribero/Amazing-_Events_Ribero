@@ -2,7 +2,7 @@ const querySearch = document.location.search
 
 const id = new URLSearchParams(querySearch).get("id") 
 
-const eventoDetails = events.filter(event => event._id == id) 
+const eventoDetails = data.events.filter(event => event._id == id) 
 
 let containerCards = document.getElementById("containerCards")
 

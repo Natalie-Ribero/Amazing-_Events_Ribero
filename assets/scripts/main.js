@@ -1,6 +1,6 @@
 //Crear categorys
 let labels = document.getElementById('labels1');
-let categorias = events.map(event => event.category);
+let categorias = data.events.map(event => event.category);
 let category = new Set(categorias);
 let checkbox = ''
 for (let event of category) {
@@ -12,7 +12,7 @@ for (let event of category) {
 labels.innerHTML = checkbox; 
 
 
-//Hacer que funcionen los categorys
+//Traer los category por su id 
 let food = document.querySelector('#FoodFair');
 let museum = document.querySelector('#Museum');
 let party = document.querySelector('#CostumeParty');
@@ -23,6 +23,7 @@ let cinema = document.querySelector('#Cinema');
 const divCards = document.getElementById('contenedorCards');
 let cards = ''
 
+//Pintar tarjetas con los datos de data
 function sumarCardsArray(array) {
   for (let event of array) {
     cards += `<div class="card estilocard" style="width: 18rem;">
@@ -38,15 +39,16 @@ function sumarCardsArray(array) {
   }
 }
 
-sumarCardsArray(events);
+sumarCardsArray(data.events);
 
 divCards.innerHTML = cards;
 
+//Filtro de Categorys
 document.addEventListener('click', (e) => {
 
   if (food.checked || museum.checked || party.checked || concert.checked || race.checked || book.checked || cinema.checked) {
 
-    let category = events.filter(event => (event.category === "Food Fair" && food.checked || event.category === "Museum" && museum.checked || event.category === "Costume Party" && party.checked || event.category === "Music Concert" && concert.checked || event.category === "Race" && race.checked || event.category === "Book Exchange" && book.checked || event.category === "Cinema" && cinema.checked))
+    let category = data.events.filter(event => (event.category === "Food Fair" && food.checked || event.category === "Museum" && museum.checked || event.category === "Costume Party" && party.checked || event.category === "Music Concert" && concert.checked || event.category === "Race" && race.checked || event.category === "Book Exchange" && book.checked || event.category === "Cinema" && cinema.checked))
 
     cards = ''
     sumarCardsArray(category);
@@ -54,11 +56,11 @@ document.addEventListener('click', (e) => {
 
   } else {
     cards = ''
-    sumarCardsArray(events);
+    sumarCardsArray(data.events);
     divCards.innerHTML = cards;
   }
 })
-// hasta aca funciona
+
 
 document.addEventListener("keyup", (e) => {
 
