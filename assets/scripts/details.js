@@ -1,3 +1,4 @@
+//empiezo task_4
 const querySearch = document.location.search
 
 const id = new URLSearchParams(querySearch).get("id") 
