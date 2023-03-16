@@ -9,7 +9,7 @@ for (let event of category) {
   <input id= '${event.replace(/\s+/g, '')}' type="checkbox">
 </label>`
 }
-labels.innerHTML = checkbox; 
+labels.innerHTML = checkbox;
 
 
 //Traer los category por su id 
