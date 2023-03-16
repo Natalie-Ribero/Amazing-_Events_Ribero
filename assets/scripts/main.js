@@ -1,3 +1,20 @@
+async function traerDatosApi() {
+  let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
+  let data = await fetch(urlApi)
+    .then(response => response.json())
+    .then(data => {
+      return data;
+    })
+    return data
+}
+
+async function iniciar() {
+  let eventos = await traerDatosApi()
+  //Colocar aca las funciones
+  console.log(eventos)
+}
+iniciar()
+
 //Crear categorys
 let labels = document.getElementById('labels1');
 let categorias = data.events.map(event => event.category);
