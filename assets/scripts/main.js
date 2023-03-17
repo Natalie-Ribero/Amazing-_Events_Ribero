@@ -4,18 +4,19 @@ async function traerDatosApi() {
   let data = await fetch(urlApi)
     .then(response => response.json())
     .then(data => {
-
+      sumarCardsArray(data)
       return data;
     })
+
 }
+traerDatosApi()
+const divCards = document.getElementById('contenedorCards');
 
 let cards = "";
 
-   function sumarCardsArray(array) {
-   array.forEach(element => {
-    
-   }); {
-     cards += `<div class="card estilocard" style="width: 18rem;">
+function sumarCardsArray(arrayEventos) {
+  arrayEventos.forEach(event => {
+    cards += `<div class="card estilocard" style="width: 18rem;">
      <img src= ${event.image} alt="Imagen de evento">
      <div class="card-body">
      <h5 class="card-title">${event.name}</h5>
@@ -25,8 +26,9 @@ let cards = "";
      <a href="./details.html?id=${event._id}" class="btn btn-primary">See more</a>
      </div>
    </div>`
-   }
- }
+  });
+  divCards.innerHTML = cards;
+}
 
 
 
