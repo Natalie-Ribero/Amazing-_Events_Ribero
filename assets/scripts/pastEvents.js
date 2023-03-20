@@ -1,41 +1,36 @@
 // let url = "./assets/scripts/amazing.json"
 let url = "https://mindhub-xj03.onrender.com/api/amazing"
 
-fetch(url)
-.then(response => response.json())
-.then(data => {
-  console.log(data);
+async function pedirData() {
+  try {
+    let respuesta = await fetch(url)
+    let data = await respuesta.json()
+    return data;
 
-let pastEvents = data.events.filter(event => event.date < data.currentDate);
+  } catch (error) {
+    console.log(error)
+  }
 
-//Crear categorys
-let labels = document.getElementById('labels1');
-let categorias = data.events.map(event => event.category)
-let category = new Set(categorias)
-let checkbox = ''
-for (let event of category) {
-  checkbox +=
-    `<label> ${event}
-  <input id= '${event.replace(/\s+/g, '')}' type="checkbox">
-</label>`
 }
-labels.innerHTML = checkbox; 
 
+async function iniciar() {
+  const data = await pedirData()
+  crearCheckbox(data.events)
 
+  let pastEvents = data.events.filter(event => event.date < data.currentDate);
+  let food = document.querySelector('#FoodFair');
+  let museum = document.querySelector('#Museum');
+  let party = document.querySelector('#CostumeParty');
+  let concert = document.querySelector('#MusicConcert');
+  let race = document.querySelector('#Race');
+  let book = document.querySelector('#BookExchange');
+  let cinema = document.querySelector('#Cinema');
+  const divCards = document.getElementById('contenedorCards');
 
-let food = document.querySelector('#FoodFair');
-let museum = document.querySelector('#Museum');
-let party = document.querySelector('#CostumeParty');
-let concert = document.querySelector('#MusicConcert');
-let race = document.querySelector('#Race');
-let book = document.querySelector('#BookExchange');
-let cinema = document.querySelector('#Cinema');
-const divCards = document.getElementById('contenedorCards');
-
-let cards = ''
-function sumarCardsArray(array) {
-  for (let event of array) {
-    cards += `<div class="card estilocard" style="width: 18rem;">
+  let cards = ''
+  function sumarCardsArray(array) {
+    for (let event of array) {
+      cards += `<div class="card estilocard" style="width: 18rem;">
     <img src= ${event.image} alt="Imagen de evento">
     <div class="card-body">
     <h5 class="card-title">${event.name}</h5>
@@ -45,43 +40,66 @@ function sumarCardsArray(array) {
     <a href="./details.html?id=${event._id}" class="btn btn-primary">See more</a>
     </div>
   </div>`
+    }
   }
+
+  sumarCardsArray(pastEvents);
+
+  divCards.innerHTML = cards;
+
+  document.addEventListener('click', (e) => {
+
+    if (food.checked || museum.checked || party.checked || concert.checked || race.checked || book.checked || cinema.checked) {
+
+      let categoryFiltro = pastEvents.filter(event => (event.category === "Food" && food.checked || event.category === "Museum" && museum.checked || event.category === "Party" && party.checked || event.category === "Concert" && concert.checked || event.category === "Race" && race.checked || event.category === "Book" && book.checked || event.category === "Cinema" && cinema.checked))
+
+      cards = ''
+      sumarCardsArray(categoryFiltro);
+      divCards.innerHTML = cards;
+
+    } else {
+      cards = ''
+      sumarCardsArray(pastEvents);
+      divCards.innerHTML = cards;
+    }
+  })
+
+
+  document.addEventListener("keyup", (e) => {
+
+    if (e.target.matches("#buscador")) {
+
+      document.querySelectorAll(".estilocard").forEach(tarjeta => {
+
+        tarjeta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+          ? tarjeta.classList.remove("filtro")
+          : tarjeta.classList.add("filtro")
+      })
+    }
+  })
 }
 
-sumarCardsArray(pastEvents);
+iniciar()
 
-divCards.innerHTML = cards;
 
-document.addEventListener('click', (e) => {
 
-  if (food.checked || museum.checked || party.checked || concert.checked || race.checked || book.checked || cinema.checked) {
 
-    let categoryFiltro = pastEvents.filter(event => (event.category === "Food" && food.checked || event.category === "Museum" && museum.checked || event.category === "Party" && party.checked || event.category === "Concert" && concert.checked || event.category === "Race" && race.checked || event.category === "Book" && book.checked || event.category === "Cinema" && cinema.checked))
-
-    cards = ''
-    sumarCardsArray(categoryFiltro);
-    divCards.innerHTML = cards;
-
-  } else {
-    cards = ''
-    sumarCardsArray(pastEvents);
-    divCards.innerHTML = cards;
+//Crear categorys
+function crearCheckbox(array) {
+  let labels = document.getElementById('labels1');
+  let categorias = array.map(event => event.category)
+  let category = new Set(categorias)
+  let checkbox = ''
+  for (let event of category) {
+    checkbox +=
+      `<label> ${event}
+  <input id= '${event.replace(/\s+/g, '')}' type="checkbox">
+</label>`
   }
-})
+  labels.innerHTML = checkbox;
+}
 
 
-document.addEventListener("keyup", (e) => {
 
-  if (e.target.matches("#buscador")) {
-
-    document.querySelectorAll(".estilocard").forEach(tarjeta => {
-
-      tarjeta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
-        ? tarjeta.classList.remove("filtro")
-        : tarjeta.classList.add("filtro")
-    })
-  }
-})
-})
 
 

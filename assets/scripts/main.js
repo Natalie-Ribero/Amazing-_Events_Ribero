@@ -84,7 +84,7 @@ function filtro(array) {
 
   } else {
     cards = ''
-    sumarCardsArray(data.events);
+    sumarCardsArray(array);
     divCards.innerHTML = cards;
   }
 })
