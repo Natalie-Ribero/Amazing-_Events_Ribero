@@ -36,7 +36,7 @@ function crearCheckbox(array) {
 </label>`
   }
 
-  document.querySelector(".upcomingMain #contenedorCards").innerHTML =
+  document.querySelector(".categoryPast #categorias .labels").innerHTML =
     checkbox;
 }
 
