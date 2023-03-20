@@ -52,11 +52,11 @@ sumarCardsArray(data.events);
 divCards.innerHTML = cards;
 
 //Filtro de Categorys
-document.addEventListener('click', (e) => {
+labels.addEventListener('click', (e) => {
 
   if (food.checked || museum.checked || party.checked || concert.checked || race.checked || book.checked || cinema.checked) {
 
-    let category = data.events.filter(event => (event.category === "Food Fair" && food.checked || event.category === "Museum" && museum.checked || event.category === "Costume Party" && party.checked || event.category === "Music Concert" && concert.checked || event.category === "Race" && race.checked || event.category === "Book Exchange" && book.checked || event.category === "Cinema" && cinema.checked))
+    let category = data.events.filter(event => (event.category === "Food" && food.checked || event.category === "Museum" && museum.checked || event.category === "Party" && party.checked || event.category === "Concert" && concert.checked || event.category === "Race" && race.checked || event.category === "Book" && book.checked || event.category === "Cinema" && cinema.checked))
 
     cards = ''
     sumarCardsArray(category);
