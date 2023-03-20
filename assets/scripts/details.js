@@ -1,4 +1,10 @@
-//empiezo task_4
+// let url = "./assets/scripts/amazing.json"
+let url = "https://mindhub-xj03.onrender.com/api/amazing"
+
+fetch(url)
+.then(response => response.json())
+.then(data => {
+  console.log(data);
 const querySearch = document.location.search
 
 const id = new URLSearchParams(querySearch).get("id") 
@@ -23,4 +29,8 @@ for (const character of eventoDetails) {
 </div>
 </div>`
 }
+})
+
+
+
 

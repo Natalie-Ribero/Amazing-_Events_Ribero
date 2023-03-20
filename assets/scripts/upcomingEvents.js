@@ -1,3 +1,11 @@
+// let url = "./assets/scripts/amazing.json"
+let url = "https://mindhub-xj03.onrender.com/api/amazing"
+
+fetch(url)
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+  
 let upcomingEvents = data.events.filter(event => event.date > data.currentDate);
 
 //Crear categorys
@@ -74,3 +82,5 @@ document.addEventListener("keyup", (e) => {
     })
   }
 })
+})
+

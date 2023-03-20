@@ -1,26 +1,4 @@
-
-let url = "https://mindhub-xj03.onrender.com/api/amazing"
-let events
-let currentDate
-
-async function obtenerData() {
-    await fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            events = data.events
-            currentDate = data.currentDate
-        })
-}
-
-async function iniciar() {
-    await obtenerData()
-    console.log(events)
-    console.log(currentDate)
-    porcentajeAsistencia(events)
-}
-
-iniciar()
-
+// let url = "./assets/scripts/amazing.json"
 
 let th = Array.from(document.querySelectorAll("th"))
 let td = Array.from(document.querySelectorAll("td"))
@@ -51,6 +29,20 @@ td[24].innerHTML = `Cinema`
 td[48].innerHTML = `Cinema`
 td[27].innerHTML = `Party`
 td[51].innerHTML = `Party`
+
+
+let url = "https://mindhub-xj03.onrender.com/api/amazing"
+let events
+let currentDate
+
+async function obtenerData() {
+    await fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            porcentajeAsistenciaPorCategoria(data.events)
+        })
+}
+
 
 function porcentajeAsistenciaPorCategoria(array) {
     
