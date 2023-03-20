@@ -36,7 +36,7 @@ function crearCheckbox(array) {
 </label>`
   }
 
-  document.querySelector(".upcomingMain #contenedorCards").innerHTML =
+  document.querySelector(".categoryUpcoming #categorias .labels").innerHTML =
     checkbox;
 }
 
@@ -100,58 +100,3 @@ document.addEventListener("keyup", (e) => {
 
   }
 });
-// // let url = "./assets/scripts/amazing.json"
-// let url = "https://mindhub-xj03.onrender.com/api/amazing"
-
-// async function pedirData() {
-//   try {
-//     let respuesta = await fetch(url)
-//     let data = await respuesta.json()
-//     return data;
-
-//   } catch (error) {
-//     console.log(error)
-//   }
-
-// }
- 
-// async function iniciar() {
-//   const data = await pedirData()
-//   crearCheckbox(data.events)
-//  let upcomingEvents = await data.events.filter(event => event.date > data.currentDate);
-//  sumarCardsArray(upcomingEvents);
-// }
-
-// iniciar()
-
-// //Crear categorys
-// function crearCheckbox(array) {
-//   let categorias = array.map((event) => event.category);
-//   let category = new Set(categorias);
-//   let checkbox = '';
-//   for (let event of category) {
-//     checkbox += `<label>
-//   <input type="checkbox" name="category" value="${event}">
-//    ${event}
-// </label>`
-//   }
-//   document.querySelector(".categoryIndex #categorias .labels").innerHTML =
-//     checkbox;
-// }
-
-
-// function sumarCardsArray(array) {
-//   for (let event of array) {
-//     cards += `<div class="card estilocard" style="width: 18rem;">
-//     <img src= ${event.image} alt="Imagen de evento">
-//     <div class="card-body">
-//     <h5 class="card-title">${event.name}</h5>
-//     <h6 class="card-title"> ${event.date}</h6>
-//     <h6 class="card-title">${event.price} USD</h6>
-//     <p class="card-text">${event.description}</p>
-//     <a href="./details.html?id=${event._id}" class="btn btn-primary">See more</a>
-//     </div>
-//   </div>`
-//   }
-// divCards.innerHTML = cards;
-// }
