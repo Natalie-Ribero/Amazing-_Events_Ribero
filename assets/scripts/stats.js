@@ -1,4 +1,24 @@
 // let url = "./assets/scripts/amazing.json"
+let url = "https://mindhub-xj03.onrender.com/api/amazing"
+
+async function pedirData() {
+  try {
+    let respuesta = await fetch(url);
+    let data = await respuesta.json();
+    return data;
+
+  } catch (error) {
+    console.log(error);
+  }
+
+}
+
+async function iniciar() {
+  const data = await pedirData();
+  porcentajeAsistenciaPorCategoria(data)
+}
+
+iniciar();
 
 let th = Array.from(document.querySelectorAll("th"))
 let td = Array.from(document.querySelectorAll("td"))
@@ -30,30 +50,3 @@ td[48].innerHTML = `Cinema`
 td[27].innerHTML = `Party`
 td[51].innerHTML = `Party`
 
-
-let url = "https://mindhub-xj03.onrender.com/api/amazing"
-let events
-let currentDate
-
-async function obtenerData() {
-    await fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            porcentajeAsistenciaPorCategoria(data.events)
-        })
-}
-
-
-function porcentajeAsistenciaPorCategoria(array) {
-    
-    if (array.category === "Food") {
-        let asistenciaFood = ""
-        array.forEach(event => {
-       asistenciaFood += (event.assistance/event.capacity)*100
-       asistenciaFood = asistenciaFood/ asistenciaFood.length
-    });
-    console.log(asistenciaFood);
-    }
-
-    
-}
