@@ -17,9 +17,9 @@ async function iniciar() {
   const data = await pedirData();
   
   crearCheckbox(data.events);
-  filtro(data.events);
   let pastEvents = await data.events.filter(event => event.date < data.currentDate);
   sumarCardsArray(pastEvents);
+  filtro(pastEvents);
 }
 
 iniciar();
@@ -92,11 +92,13 @@ document.addEventListener("keyup", (e) => {
         .querySelector(".card-text")
         .textContent.toLowerCase();
       if (title.includes(input) || description.includes(input)) {
-        card.style.display = "block";
+        card.style.display = "flex";
       } else {
         card.style.display = "none";
       }
     });
 
+  }else{
+    document.getElementById("contenedorCards").innerHTML = `Percentaje of Atendence`;
   }
 });

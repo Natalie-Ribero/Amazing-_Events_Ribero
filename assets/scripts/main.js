@@ -89,7 +89,7 @@ document.addEventListener("keyup", (e) => {
         .querySelector(".card-text")
         .textContent.toLowerCase();
       if (title.includes(input) || description.includes(input)) {
-        card.style.display = "block";
+        card.style.display = "flex";
       } else {
         card.style.display = "none";
       }
