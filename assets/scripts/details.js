@@ -1,21 +1,32 @@
 // let url = "./assets/scripts/amazing.json"
 let url = "https://mindhub-xj03.onrender.com/api/amazing"
 
-fetch(url)
-.then(response => response.json())
-.then(data => {
-  console.log(data);
-const querySearch = document.location.search
+async function pedirData() {
+  try {
+    let respuesta = await fetch(url)
+    let data = await respuesta.json()
+    return data;
 
-const id = new URLSearchParams(querySearch).get("id") 
+  } catch (error) {
+    console.log(error)
+  }
 
-const eventoDetails = data.events.filter(event => event._id == id) 
+}
 
-let containerCards = document.getElementById("containerCards")
+async function iniciar() {
+  const data = await pedirData()
 
-for (const character of eventoDetails) {
+  const querySearch = document.location.search
+
+  const id = new URLSearchParams(querySearch).get("id")
+
+  let eventoDetails = data.events.filter(event => event._id == id)
+
+  let containerCards = document.getElementById("containerCards")
+
+  for (const character of eventoDetails) {
     containerCards.innerHTML =
- `<div class="card estilocardDetails" style="width: 18rem;">
+      `<div class="card estilocardDetails" style="width: 18rem;">
 <img src= ${character.image} alt="Imagen de evento">
 <div class="card-body">
 <h5 class="card-title">${character.name}</h5> 
@@ -28,9 +39,10 @@ for (const character of eventoDetails) {
 <a href="./index.html" class="btn btn-primary">Go back to start</a>
 </div>
 </div>`
+  }
 }
-})
 
+iniciar()
 
 
 

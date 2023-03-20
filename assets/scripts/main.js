@@ -53,7 +53,7 @@ let labels = document.getElementById('labels1');
 const divCards = document.getElementById('contenedorCards');
 let cards = ''
 
-// //Pintar tarjetas con los datos de data
+ //Pintar tarjetas con los datos de data
 function sumarCardsArray(array) {
   for (let event of array) {
     cards += `<div class="card estilocard" style="width: 18rem;">
@@ -70,7 +70,7 @@ function sumarCardsArray(array) {
   divCards.innerHTML = cards;
 }
 
-
+//Filtro de Categorys
 function filtro(array) {
   labels.addEventListener('click', (e) => {
 
@@ -90,23 +90,19 @@ function filtro(array) {
 })
 }
 
+//filtro buscador
+document.addEventListener("keyup", (e) => {
 
-// //Filtro de Categorys
-// 
+  if (e.target.matches("#buscador")) {
 
+    document.querySelectorAll(".estilocard").forEach(tarjeta => {
 
-// document.addEventListener("keyup", (e) => {
-
-//   if (e.target.matches("#buscador")) {
-
-//     document.querySelectorAll(".estilocard").forEach(tarjeta => {
-
-//       tarjeta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
-//         ? tarjeta.classList.remove("filtro")
-//         : tarjeta.classList.add("filtro")
-//     })
-//   }
-// })
+      tarjeta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+        ? tarjeta.classList.remove("filtro")
+        : tarjeta.classList.add("filtro")
+    })
+  }
+})
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
