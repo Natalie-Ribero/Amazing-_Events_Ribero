@@ -92,6 +92,7 @@ function crearCheckbox(array) {
   <input id= '${event.replace(/\s+/g, '')}' type="checkbox">
 </label>`
   }
+  
   labels.innerHTML = checkbox;
 }
 
