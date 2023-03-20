@@ -1,34 +1,49 @@
 // let url = "./assets/scripts/amazing.json"
 let url = "https://mindhub-xj03.onrender.com/api/amazing"
 
-fetch(url)
-.then(response => response.json())
-.then(data => {
-  console.log(data);
-  
-let upcomingEvents = data.events.filter(event => event.date > data.currentDate);
+async function pedirData() {
+  try {
+    let respuesta = await fetch(url)
+    let data = await respuesta.json()
+    return data;
 
-//Crear categorys
+  } catch (error) {
+    console.log(error)
+  }
+
+}
+ 
+async function iniciar() {
+  const data = await pedirData()
+  crearCheckbox(data.events)
+ let upcomingEvents = await data.events.filter(event => event.date > data.currentDate);
+ sumarCardsArray(upcomingEvents);
+}
+
+iniciar()
+
+
 let labels = document.getElementById('labels1');
-let categorias = data.events.map(event => event.category)
-let category = new Set(categorias)
-let checkbox = ''
-for (let event of category) {
-  checkbox +=
-    `<label> ${event}
+//Crear categorys
+function crearCheckbox(array) {
+  let categorias = array.map(event => event.category)
+  let category = new Set(categorias)
+  let checkbox = ''
+  for (let event of category) {
+    checkbox +=
+      `<label> ${event}
   <input id= '${event.replace(/\s+/g, '')}' type="checkbox">
 </label>`
+  }
+  labels.innerHTML = checkbox;
 }
-labels.innerHTML = checkbox; 
 
-
-
-let food = document.querySelector('#FoodFair');
+let food = document.querySelector('#Food');
 let museum = document.querySelector('#Museum');
-let party = document.querySelector('#CostumeParty');
-let concert = document.querySelector('#MusicConcert');
+let party = document.querySelector('#Party');
+let concert = document.querySelector('#Concert');
 let race = document.querySelector('#Race');
-let book = document.querySelector('#BookExchange');
+let book = document.querySelector('#Book');
 let cinema = document.querySelector('#Cinema');
 const divCards = document.getElementById('contenedorCards');
 let cards = ''
@@ -46,41 +61,38 @@ function sumarCardsArray(array) {
     </div>
   </div>`
   }
+divCards.innerHTML = cards;
 }
 
-sumarCardsArray(upcomingEvents);
-
-divCards.innerHTML = cards;
-
-document.addEventListener('click', (e) => {
-
-  if (food.checked || museum.checked || party.checked || concert.checked || race.checked || book.checked || cinema.checked) {
-
-    let categoriaFiltro = upcomingEvents.filter(event => (event.category === "Food" && food.checked || event.category === "Museum" && museum.checked || event.category === "Party" && party.checked || event.category === "Concert" && concert.checked || event.category === "Race" && race.checked || event.category === "Book" && book.checked || event.category === "Cinema" && cinema.checked))
-
-    cards = ''
-    sumarCardsArray(categoriaFiltro);
-    divCards.innerHTML = cards;
-
-  } else {
-    cards = ''
-    sumarCardsArray(upcomingEvents);
-    divCards.innerHTML = cards;
-  }
-})
 
 
-document.addEventListener("keyup", (e) => {
+// document.addEventListener('click', (e) => {
 
-  if (e.target.matches("#buscador")) {
+//   if (food.checked || museum.checked || party.checked || concert.checked || race.checked || book.checked || cinema.checked) {
 
-    document.querySelectorAll(".estilocard").forEach(tarjeta => {
+//     let categoriaFiltro = upcomingEvents.filter(event => (event.category === "Food" && food.checked || event.category === "Museum" && museum.checked || event.category === "Party" && party.checked || event.category === "Concert" && concert.checked || event.category === "Race" && race.checked || event.category === "Book" && book.checked || event.category === "Cinema" && cinema.checked))
 
-      tarjeta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
-        ? tarjeta.classList.remove("filtro")
-        : tarjeta.classList.add("filtro")
-    })
-  }
-})
-})
+//     cards = ''
+//     sumarCardsArray(categoriaFiltro);
+//     divCards.innerHTML = cards;
 
+//   } else {
+//     cards = ''
+//     sumarCardsArray(upcomingEvents);
+//     divCards.innerHTML = cards;
+//   }
+// })
+
+
+// document.addEventListener("keyup", (e) => {
+
+//   if (e.target.matches("#buscador")) {
+
+//     document.querySelectorAll(".estilocard").forEach(tarjeta => {
+
+//       tarjeta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+//         ? tarjeta.classList.remove("filtro")
+//         : tarjeta.classList.add("filtro")
+//     })
+//   }
+// })

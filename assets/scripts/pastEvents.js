@@ -16,21 +16,26 @@ async function pedirData() {
 async function iniciar() {
   const data = await pedirData()
   crearCheckbox(data.events)
+  let pastEvents = await data.events.filter(event => event.date < data.currentDate);
+  sumarCardsArray(pastEvents);
+}
 
-  let pastEvents = data.events.filter(event => event.date < data.currentDate);
-  let food = document.querySelector('#FoodFair');
-  let museum = document.querySelector('#Museum');
-  let party = document.querySelector('#CostumeParty');
-  let concert = document.querySelector('#MusicConcert');
-  let race = document.querySelector('#Race');
-  let book = document.querySelector('#BookExchange');
-  let cinema = document.querySelector('#Cinema');
-  const divCards = document.getElementById('contenedorCards');
+iniciar()
 
-  let cards = ''
-  function sumarCardsArray(array) {
-    for (let event of array) {
-      cards += `<div class="card estilocard" style="width: 18rem;">
+
+let food = document.querySelector('#Food');
+let museum = document.querySelector('#Museum');
+let party = document.querySelector('#Party');
+let concert = document.querySelector('#Concert');
+let race = document.querySelector('#Race');
+let book = document.querySelector('#Book');
+let cinema = document.querySelector('#Cinema');
+const divCards = document.getElementById('contenedorCards');
+
+let cards = ''
+function sumarCardsArray(array) {
+  for (let event of array) {
+    cards += `<div class="card estilocard" style="width: 18rem;">
     <img src= ${event.image} alt="Imagen de evento">
     <div class="card-body">
     <h5 class="card-title">${event.name}</h5>
@@ -40,53 +45,44 @@ async function iniciar() {
     <a href="./details.html?id=${event._id}" class="btn btn-primary">See more</a>
     </div>
   </div>`
-    }
   }
-
-  sumarCardsArray(pastEvents);
-
   divCards.innerHTML = cards;
-
-  document.addEventListener('click', (e) => {
-
-    if (food.checked || museum.checked || party.checked || concert.checked || race.checked || book.checked || cinema.checked) {
-
-      let categoryFiltro = pastEvents.filter(event => (event.category === "Food" && food.checked || event.category === "Museum" && museum.checked || event.category === "Party" && party.checked || event.category === "Concert" && concert.checked || event.category === "Race" && race.checked || event.category === "Book" && book.checked || event.category === "Cinema" && cinema.checked))
-
-      cards = ''
-      sumarCardsArray(categoryFiltro);
-      divCards.innerHTML = cards;
-
-    } else {
-      cards = ''
-      sumarCardsArray(pastEvents);
-      divCards.innerHTML = cards;
-    }
-  })
-
-
-  document.addEventListener("keyup", (e) => {
-
-    if (e.target.matches("#buscador")) {
-
-      document.querySelectorAll(".estilocard").forEach(tarjeta => {
-
-        tarjeta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
-          ? tarjeta.classList.remove("filtro")
-          : tarjeta.classList.add("filtro")
-      })
-    }
-  })
 }
 
-iniciar()
+document.addEventListener('click', (e) => {
+
+  if (food.checked || museum.checked || party.checked || concert.checked || race.checked || book.checked || cinema.checked) {
+
+    let categoryFiltro = pastEvents.filter(event => (event.category === "Food" && food.checked || event.category === "Museum" && museum.checked || event.category === "Party" && party.checked || event.category === "Concert" && concert.checked || event.category === "Race" && race.checked || event.category === "Book" && book.checked || event.category === "Cinema" && cinema.checked))
+
+    cards = ''
+    sumarCardsArray(categoryFiltro);
+    divCards.innerHTML = cards;
+
+  } else {
+    cards = ''
+    sumarCardsArray(pastEvents);
+    divCards.innerHTML = cards;
+  }
+})
 
 
+document.addEventListener("keyup", (e) => {
 
+  if (e.target.matches("#buscador")) {
 
+    document.querySelectorAll(".estilocard").forEach(tarjeta => {
+
+      tarjeta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+        ? tarjeta.classList.remove("filtro")
+        : tarjeta.classList.add("filtro")
+    })
+  }
+})
+
+let labels = document.getElementById('labels1');
 //Crear categorys
 function crearCheckbox(array) {
-  let labels = document.getElementById('labels1');
   let categorias = array.map(event => event.category)
   let category = new Set(categorias)
   let checkbox = ''
