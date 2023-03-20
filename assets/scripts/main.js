@@ -4,8 +4,8 @@ let url = "https://mindhub-xj03.onrender.com/api/amazing"
 async function pedirData() {
   try {
     let respuesta = await fetch(url);
-  let data = await respuesta.json();
-  return data;
+    let data = await respuesta.json();
+    return data;
 
   } catch (error) {
     console.log(error);
@@ -22,15 +22,13 @@ async function iniciar() {
 
 iniciar();
 
-
-
 // Crear categorys
 function crearCheckbox(array) {
   let categorias = array.map((event) => event.category);
   let category = new Set(categorias);
   let checkbox = '';
   for (let event of category) {
-    checkbox +=`<label>
+    checkbox += `<label>
   <input type="checkbox" name="category" value="${event}">
    ${event}
 </label>`
@@ -39,12 +37,12 @@ function crearCheckbox(array) {
     checkbox;
 }
 
- //Pintar tarjetas con los datos de data
+//Pintar tarjetas con los datos de data
 function sumarCardsArray(array) {
   let cards = "";
   for (let event of array) {
     cards += `<div class="card estilocard" style="width: 18rem;">
-    <img src= ${event.image}class="card-img-top" alt="Imagen de evento">
+    <img src= ${event.image} alt="Imagen de evento">
     <div class="card-body">
     <h5 class="card-title">${event.name}</h5>
     <h6 class="card-title"> ${event.date}</h6>
@@ -91,13 +89,14 @@ document.addEventListener("keyup", (e) => {
         .querySelector(".card-text")
         .textContent.toLowerCase();
       if (title.includes(input) || description.includes(input)) {
-        card.style.display = "block";  } else {
-          card.style.display = "none";
-        }
-      });
-      
-    }
-  });
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+  }
+});
 
 
 
