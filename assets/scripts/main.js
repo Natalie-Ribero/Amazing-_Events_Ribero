@@ -94,7 +94,6 @@ document.addEventListener("keyup", (e) => {
         card.style.display = "none";
       }
     });
-
   }
 });
 

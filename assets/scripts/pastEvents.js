@@ -97,8 +97,5 @@ document.addEventListener("keyup", (e) => {
         card.style.display = "none";
       }
     });
-
-  }else{
-    document.getElementById("contenedorCards").innerHTML = `Percentaje of Atendence`;
   }
 });
