@@ -15,11 +15,11 @@ async function pedirData() {
 
 async function iniciar() {
   const data = await pedirData();
-  
+
   crearCheckbox(data.events);
-  filtro(data.events);
   let upcomingEvents = await data.events.filter(event => event.date > data.currentDate);
   sumarCardsArray(upcomingEvents);
+  filtro(upcomingEvents);
 }
 
 iniciar();
