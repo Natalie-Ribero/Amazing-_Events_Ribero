@@ -15,7 +15,6 @@ async function pedirData() {
 
 async function iniciar() {
   const data = await pedirData();
-  porcentajeAsistenciaPorCategoria(data)
 }
 
 iniciar();

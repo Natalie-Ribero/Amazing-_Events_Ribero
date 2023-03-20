@@ -75,6 +75,7 @@ div form {
     flex-wrap: wrap;
     flex-direction: column;
     gap: 2vw;
+    align-items: flex-end;
 }
 
 h2 {
@@ -193,6 +194,12 @@ footer {
 
 label {
     color: white;
+}
+
+textarea, .name, .email {
+    width: 30vw;
+    border-color: blue;
+    box-shadow: -19px -16px 25px 4px rgba(0, 0, 0, 0.47);
 }
 
 @media (min-width: 990px) {
