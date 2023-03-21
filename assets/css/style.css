@@ -202,6 +202,20 @@ textarea, .name, .email {
     box-shadow: -19px -16px 25px 4px rgba(0, 0, 0, 0.47);
 }
 
+#enviar {
+    width: 30vw;
+    margin-right: 2vw;
+}
+
+#contactImg{
+    height: 40vh;
+}
+
+.contact {
+    display: flex;
+    justify-content: space-between;
+}
+
 @media (min-width: 990px) {
 
     #navbarSupportedContent {
