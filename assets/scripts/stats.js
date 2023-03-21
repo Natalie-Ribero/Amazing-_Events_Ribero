@@ -15,32 +15,41 @@ async function pedirData() {
 
 async function iniciar() {
   const data = await pedirData();
-  categorias(data.events)
+  console.log(data);
+  // categorias(data.events)
 }
 
 iniciar();
 
-function crearTabla(array) {
+function crearPrimerTabla() {
   
 }
 
-function sacarPorcentaje(array) {
+function sacarPorcentaje() {
   
 }
 
-function pintarDatosTabla(array) {
+function pintarDatosTabla() {
   
 }
 
-function categorias(array) {
-  let categorias = array.map((event) => event.category);
-  let category = new Set(categorias);
-  console.log(category);
-  return category;
-}
+// function categorias() {
+//   let categorias = array.map((event) => event.category);
+//   let category = new Set(categorias);
+//   console.log(category);
+//   return category;
+// }
 
 //Tabla 1
- let tabla 1
+ let primerTabla = document.getElementById("primerTabla");
+ let segundaTabla = document.getElementById("segundaTabla");
+ let tercerTabla = document.getElementById("tercerTabla");
+
+
+//  array.forEach(element => {
+  
+//  });
+
 
 
 // 1ER TABLA EVENTOS PASADOS: Evento con el mayor porcentaje de asistencia | Evento con el menor porcentaje de asistencia | evento con mayor capacidad.
