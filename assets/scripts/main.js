@@ -17,7 +17,7 @@ async function iniciar() {
   const data = await pedirData();
   crearCheckbox(data.events);
   sumarCardsArray(data.events);
-  filtro(data.events);
+  filtroCheckbox(data.events);
 }
 
 iniciar();
@@ -56,7 +56,7 @@ function sumarCardsArray(array) {
 }
 
 //Filtro de Categorias
-function filtro(array) {
+function filtroCheckbox(array) {
   const checkboxes = document.querySelectorAll('[type="checkbox"]');
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener("change", () => {
