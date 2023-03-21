@@ -15,37 +15,50 @@ async function pedirData() {
 
 async function iniciar() {
   const data = await pedirData();
+  categorias(data.events)
 }
 
 iniciar();
 
-let th = Array.from(document.querySelectorAll("th"))
-let td = Array.from(document.querySelectorAll("td"))
-let tr = Array.from(document.querySelectorAll("tr"))
-console.log(td,tr,th)
+function crearTabla(array) {
+  
+}
 
-th[0].innerHTML = `Events statistics`
-th[1].innerHTML = `Upcoming Events statistics by category`
-th[2].innerHTML = `Past Events statistics by category`
-td[6].innerHTML = `Category`
-td[30].innerHTML = `Category`
-td[7].innerHTML = `Revenues`
-td[31].innerHTML = `Revenues`
-td[8].innerHTML = `Percentaje of Atendence`
-td[32].innerHTML = `Percentaje of Atendence`
+function sacarPorcentaje(array) {
+  
+}
 
-td[9].innerHTML = `Food`
-td[33].innerHTML = `Food`
-td[12].innerHTML = `Museum`
-td[36].innerHTML = `Museum`
-td[15].innerHTML = `Concert`
-td[39].innerHTML = `Concert`
-td[18].innerHTML = `Race`
-td[42].innerHTML = `Race`
-td[21].innerHTML = `Books`
-td[45].innerHTML = `Books`
-td[24].innerHTML = `Cinema`
-td[48].innerHTML = `Cinema`
-td[27].innerHTML = `Party`
-td[51].innerHTML = `Party`
+function pintarDatosTabla(array) {
+  
+}
 
+function categorias(array) {
+  let categorias = array.map((event) => event.category);
+  let category = new Set(categorias);
+  console.log(category);
+  return category;
+}
+
+//Tabla 1
+ let tabla 1
+
+
+// 1ER TABLA EVENTOS PASADOS: Evento con el mayor porcentaje de asistencia | Evento con el menor porcentaje de asistencia | evento con mayor capacidad.
+
+// 2DA TABLA EVENTOS FUTUROS: Categorías | Ganancias de todos los eventos de una categoría | Porcentaje de asistencia.
+
+// 3ER TABLA EVENTOS PASADOS: Categorías | Ganancias de todos los eventos de una categoría | Porcentaje de asistencia.
+
+//                                               asistencia dividido capacidad por cien.
+// 📌Porcentaje de asistencia: (asistencia / capacidad) x 100. (asistencia = assistance o estimate).
+
+// 📌Porcentaje de asistencia de la segunda y tercer tabla: los resultados de la tabla resuelta que pasé son promedios, no porcentajes, ustedes lo pueden hacer de las dos formas:
+// porcentaje: suman toda la asistencia de los eventos de esa categoría, después suman toda la capacidad de los eventos de esa categoría y ahí hacen el porcentaje total.
+// promedio: de cada porcentaje de asistencia lo dividen por la cantidad de eventos, es decir, si tengo 4 eventos voy a tener 4 porcentajes y eso lo divido por 4
+// ej museum: los porcentajes de los cuatro eventos a esa categoría son 100%, 100%, 84,375%, 81,666% / 4 = 91,50%  (resultado de la tabla).
+
+// 📌Conclusión: si eligen sacar el porcentaje, va a haber una pequeña diferencia con los resultados de la tabla (es mínima, está bien de igual forma, haganló como se les haga más fácil y cómodo). 
+// 📌 Ganancias: sumar todos los precios de los eventos (precio del evento multiplicado por asistencia) de una categoría. 
+// 📌 Evento con mayor porcentaje de asistencia: Sacan el porcentaje de todos los eventos pasados, ordenenlos de mayor a menor, impriman el primero.
+// 📌 Evento con menor porcentaje de asistencia: Sacan el porcentaje de todos los eventos pasados, ordenenlos de menor a mayor, impriman el primero.
+// debería ser ilegal esta ayuda, pero bueno, task resuelta, lo que dije, pasan a código
