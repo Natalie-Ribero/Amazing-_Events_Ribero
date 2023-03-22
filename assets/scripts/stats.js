@@ -16,39 +16,52 @@ async function pedirData() {
 async function iniciar() {
   const data = await pedirData();
   console.log(data);
-  // categorias(data.events)
+  let pastEvents = await data.events.filter(event => event.date < data.currentDate);
+   porcentajeAsistencia(pastEvents)
+
 }
 
 iniciar();
 
-function crearPrimerTabla() {
-  
-}
-
-function sacarPorcentaje() {
-  
-}
-
-function pintarDatosTabla() {
-  
-}
-
-// function categorias() {
-//   let categorias = array.map((event) => event.category);
-//   let category = new Set(categorias);
-//   console.log(category);
-//   return category;
-// }
-
 //Tabla 1
- let primerTabla = document.getElementById("primerTabla");
- let segundaTabla = document.getElementById("segundaTabla");
- let tercerTabla = document.getElementById("tercerTabla");
+
+let segundaTabla = document.getElementById("segundaTabla");
+let tercerTabla = document.getElementById("tercerTabla");
+let porcentajes = []
+
+function porcentajeAsistencia(array) {
+  array.forEach(element => {
+    porcentajes += " " + ((element.assistance / element.capacity) * 100)
+  })
+}
+
+function creacionPrimerTabla() {
+  document.getElementById("primerTabla").innerHTML = `<thead>
+    <tr>
+      <th scope="col">Event with the highest percentage of attendance</th>
+      <th scope="col">Event with the lowest percentage of attendance</th>
+      <th scope="col">Event with larger capacity</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr class= "mayorAsistenciaTR">
+    <td class = "mayorAsistencia"></td>
+    <td class = "menorAsistencia">Otto</td>
+    <td class = "mayorCapacidad">@mdo</td>
+  </tr>
+  </tbody>`
+}
+creacionPrimerTabla()
 
 
-//  array.forEach(element => {
-  
-//  });
+function pintarEventoMayorAsistencia() {
+  porcentajes.sort(function(a, b) {
+    return a - b;
+  });
+ document.querySelector("#primerTabla .mayorAsistenciaTR .mayorAsistencia").innerHTML = porcentajes
+}
+pintarEventoMayorAsistencia()
+
 
 
 
@@ -66,8 +79,8 @@ function pintarDatosTabla() {
 // promedio: de cada porcentaje de asistencia lo dividen por la cantidad de eventos, es decir, si tengo 4 eventos voy a tener 4 porcentajes y eso lo divido por 4
 // ej museum: los porcentajes de los cuatro eventos a esa categoría son 100%, 100%, 84,375%, 81,666% / 4 = 91,50%  (resultado de la tabla).
 
-// 📌Conclusión: si eligen sacar el porcentaje, va a haber una pequeña diferencia con los resultados de la tabla (es mínima, está bien de igual forma, haganló como se les haga más fácil y cómodo). 
-// 📌 Ganancias: sumar todos los precios de los eventos (precio del evento multiplicado por asistencia) de una categoría. 
+// 📌Conclusión: si eligen sacar el porcentaje, va a haber una pequeña diferencia con los resultados de la tabla (es mínima, está bien de igual forma, haganló como se les haga más fácil y cómodo).
+// 📌 Ganancias: sumar todos los precios de los eventos (precio del evento multiplicado por asistencia) de una categoría.
 // 📌 Evento con mayor porcentaje de asistencia: Sacan el porcentaje de todos los eventos pasados, ordenenlos de mayor a menor, impriman el primero.
 // 📌 Evento con menor porcentaje de asistencia: Sacan el porcentaje de todos los eventos pasados, ordenenlos de menor a mayor, impriman el primero.
 // debería ser ilegal esta ayuda, pero bueno, task resuelta, lo que dije, pasan a código
