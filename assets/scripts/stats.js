@@ -19,7 +19,8 @@ async function iniciar() {
   let upcomingEvents = eventosUpcoming(data.events, data.currentDate);
   mayorPorcentajeAsistencia(pastEvents)
   menorPorcentajeAsistencia(pastEvents)
-  console.log(pastEvents);
+  console.log(pastEvents);  
+  document.querySelector("#primerTabla .mayorAsistenciaTR .menorAsistencia").innerHTML = `${pastEvents[0].name + " (" + (pastEvents[0].assistance)/ (pastEvents[0].capacity)*100 + "%)" }`
 }
 
 iniciar();
@@ -77,7 +78,7 @@ function menorPorcentajeAsistencia(array) {
     }
     return 0;
   });
-    document.querySelector("#primerTabla .mayorAsistenciaTR .mayorAsistencia").innerHTML = pastEvents
+
 }
 
 
