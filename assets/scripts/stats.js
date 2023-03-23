@@ -20,9 +20,10 @@ async function iniciar() {
   menorPorcentajeAsistencia(pastEvents)
   document.querySelector("#primerTabla .mayorAsistenciaTR .menorAsistencia").innerHTML = `${arrayOrdenadoPorcentaje[0].name + " (" + (arrayOrdenadoPorcentaje[0].assistance) / (arrayOrdenadoPorcentaje[0].capacity) * 100}%)`
   document.querySelector("#primerTabla .mayorAsistenciaTR .mayorAsistencia").innerHTML = `${arrayOrdenadoPorcentaje[17].name + " (" + (arrayOrdenadoPorcentaje[17].assistance) / (arrayOrdenadoPorcentaje[17].capacity) * 100}%)`
-  console.log();
   mayorCapacidad(pastEvents)
   document.querySelector("#primerTabla .mayorAsistenciaTR .mayorCapacidad").innerHTML = `${arrayOrdenadoCapacidad[0].name + " (" + arrayOrdenadoCapacidad[0].capacity})`
+  console.log(pastEvents);
+  console.log(upcomingEvents);
 }
 
 iniciar();
@@ -73,7 +74,7 @@ function menorPorcentajeAsistencia(array) {
 }
 
 
-let arrayOrdenadoCapacidad= []
+let arrayOrdenadoCapacidad = []
 //evento con mayor capacidad.
 function mayorCapacidad(array) {
   arrayOrdenadoCapacidad = array.sort(function (a, b) {
@@ -85,14 +86,9 @@ function mayorCapacidad(array) {
     }
     return 0;
   });
-  console.log(arrayOrdenadoCapacidad); 
 }
 
-
-
-
-
-
+//---------------------------------------------------------------------------------------------------------------------------------------
 //Tabla 2
 function creacionSegundaTabla() {
   document.getElementById("segundaTabla").innerHTML = `<thead>
@@ -136,11 +132,23 @@ function creacionSegundaTabla() {
 creacionSegundaTabla()
 
 // Categorías
+function pintarCategoriasT2() {
+  document.querySelector(`#segundaTabla .food .categorias`).innerHTML = `Food`
+  document.querySelector(`#segundaTabla .museum .categorias`).innerHTML = `Museum`
+  document.querySelector(`#segundaTabla .concert .categorias`).innerHTML = `Concert`
+  document.querySelector(`#segundaTabla .race .categorias`).innerHTML = `Race`
+  document.querySelector(`#segundaTabla .book .categorias`).innerHTML = `Book`
+  document.querySelector(`#segundaTabla .party .categorias`).innerHTML = `Party`
+}
+pintarCategoriasT2()
 
 //Ganancias de todos los eventos de una categoría
 
+
+
 //Porcentaje de asistencia.
 
+//-----------------------------------------------------------------------------------------------------------------------------------------
 //Tabla 3
 function creacionTercerTabla(array) {
   document.getElementById("tercerTabla").innerHTML = `<thead>
@@ -174,6 +182,11 @@ function creacionTercerTabla(array) {
 <td class = "ganancias"></td>
 <td class = "asistencia"></td>
 </tr>
+<tr class= "cinema">
+<td class = "categorias"></td>
+<td class = "ganancias"></td>
+<td class = "asistencia"></td>
+</tr>
 <tr class= "party">
 <td class = "categorias"></td>
 <td class = "ganancias"></td>
@@ -184,14 +197,25 @@ function creacionTercerTabla(array) {
 creacionTercerTabla()
 
 // Categorías
+function pintarCategoriasT3() {
+  document.querySelector(`#tercerTabla .food .categorias`).innerHTML = `Food`
+  document.querySelector(`#tercerTabla .museum .categorias`).innerHTML = `Museum`
+  document.querySelector(`#tercerTabla .concert .categorias`).innerHTML = `Concert`
+  document.querySelector(`#tercerTabla .race .categorias`).innerHTML = `Race`
+  document.querySelector(`#tercerTabla .book .categorias`).innerHTML = `Book`
+  document.querySelector(`#tercerTabla .cinema .categorias`).innerHTML = `Cinema`
+  document.querySelector(`#tercerTabla .party .categorias`).innerHTML = `Party`
+}
+
+pintarCategoriasT3()
 
 //Ganancias de todos los eventos de una categoría
 
+
+
 //Porcentaje de asistencia.
 
-
-// 1ER TABLA EVENTOS PASADOS: Evento con el mayor porcentaje de asistencia | Evento con el menor porcentaje de asistencia | evento con mayor capacidad.
-
+//----------------------------------------------------------------------------------------------------------------------------------------
 // 2DA TABLA EVENTOS FUTUROS: Categorías | Ganancias de todos los eventos de una categoría | Porcentaje de asistencia.
 
 // 3ER TABLA EVENTOS PASADOS: Categorías | Ganancias de todos los eventos de una categoría | Porcentaje de asistencia.
@@ -204,8 +228,5 @@ creacionTercerTabla()
 // promedio: de cada porcentaje de asistencia lo dividen por la cantidad de eventos, es decir, si tengo 4 eventos voy a tener 4 porcentajes y eso lo divido por 4
 // ej museum: los porcentajes de los cuatro eventos a esa categoría son 100%, 100%, 84,375%, 81,666% / 4 = 91,50%  (resultado de la tabla).
 
-// 📌Conclusión: si eligen sacar el porcentaje, va a haber una pequeña diferencia con los resultados de la tabla (es mínima, está bien de igual forma, haganló como se les haga más fácil y cómodo).
 // 📌 Ganancias: sumar todos los precios de los eventos (precio del evento multiplicado por asistencia) de una categoría.
-// 📌 Evento con mayor porcentaje de asistencia: Sacan el porcentaje de todos los eventos pasados, ordenenlos de mayor a menor, impriman el primero.
-// 📌 Evento con menor porcentaje de asistencia: Sacan el porcentaje de todos los eventos pasados, ordenenlos de menor a mayor, impriman el primero.
 // debería ser ilegal esta ayuda, pero bueno, task resuelta, lo que dije, pasan a código
