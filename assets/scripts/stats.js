@@ -17,10 +17,12 @@ async function iniciar() {
   const data = await pedirData();
   let pastEvents = eventosPast(data.events, data.currentDate)
   let upcomingEvents = eventosUpcoming(data.events, data.currentDate);
-  mayorPorcentajeAsistencia(pastEvents)
   menorPorcentajeAsistencia(pastEvents)
-  console.log(pastEvents);  
-  document.querySelector("#primerTabla .mayorAsistenciaTR .menorAsistencia").innerHTML = `${pastEvents[0].name + " (" + (pastEvents[0].assistance)/ (pastEvents[0].capacity)*100 + "%)" }`
+  document.querySelector("#primerTabla .mayorAsistenciaTR .menorAsistencia").innerHTML = `${arrayOrdenadoPorcentaje[0].name + " (" + (arrayOrdenadoPorcentaje[0].assistance) / (arrayOrdenadoPorcentaje[0].capacity) * 100}%)`
+  document.querySelector("#primerTabla .mayorAsistenciaTR .mayorAsistencia").innerHTML = `${arrayOrdenadoPorcentaje[17].name + " (" + (arrayOrdenadoPorcentaje[17].assistance) / (arrayOrdenadoPorcentaje[17].capacity) * 100}%)`
+  console.log();
+  mayorCapacidad(pastEvents)
+  document.querySelector("#primerTabla .mayorAsistenciaTR .mayorCapacidad").innerHTML = `${arrayOrdenadoCapacidad[0].name + " (" + arrayOrdenadoCapacidad[0].capacity})`
 }
 
 iniciar();
@@ -55,39 +57,41 @@ function creacionPrimerTabla() {
 }
 creacionPrimerTabla()
 
-//Evento con el mayor porcentaje de asistencia 
-function mayorPorcentajeAsistencia(array) {
-  let porcentajesMayor = []
-  array.forEach(element => {
-    porcentajesMayor += element.name + (Number(element.assistance) / Number(element.capacity) * 100)
-  })
-  // document.querySelector("#primerTabla .mayorAsistenciaTR .mayorAsistencia").innerHTML = mayorAsistencia
-}
-
-
-
-
-//Evento con el menor porcentaje de asistencia
+let arrayOrdenadoPorcentaje = []
+//Ordenar Eventos de menor a mayor
 function menorPorcentajeAsistencia(array) {
-  array.sort(function (a, b) {
-    if ((a.assistance/a.capacity)*100 > (b.assistance/b.capacity)*100) {
+  arrayOrdenadoPorcentaje = array.sort(function (a, b) {
+    if ((a.assistance / a.capacity) * 100 > (b.assistance / b.capacity) * 100) {
       return 1;
     }
-    if ((a.assistance/a.capacity)*100 < (b.assistance/b.capacity)*100) {
+    if ((a.assistance / a.capacity) * 100 < (b.assistance / b.capacity) * 100) {
       return -1;
     }
     return 0;
   });
-
+  return arrayOrdenadoPorcentaje
 }
 
 
-
-
+let arrayOrdenadoCapacidad= []
 //evento con mayor capacidad.
 function mayorCapacidad(array) {
-  let capacidad = array.map((event) => event.capacity)
+  arrayOrdenadoCapacidad = array.sort(function (a, b) {
+    if (a.capacity < b.capacity) {
+      return 1;
+    }
+    if (a.capacity > b.capacity) {
+      return -1;
+    }
+    return 0;
+  });
+  console.log(arrayOrdenadoCapacidad); 
 }
+
+
+
+
+
 
 //Tabla 2
 function creacionSegundaTabla() {
