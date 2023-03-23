@@ -267,6 +267,8 @@ textarea, .name, .email {
 
     .tableContainer {
         height: max-content;
+        display: flex;
+        flex-direction: column;
     }
 
     .detailsMain {

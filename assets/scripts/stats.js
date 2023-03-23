@@ -15,78 +15,120 @@ async function pedirData() {
 
 async function iniciar() {
   const data = await pedirData();
-  console.log(data);
-  let pastEvents = await data.events.filter(event => event.date < data.currentDate);
+  let pastEvents = eventosPast(data.events, data.currentDate)
+  let upcomingEvents = eventosUpcoming(data.events, data.currentDate);
   mayorPorcentajeAsistencia(pastEvents)
   menorPorcentajeAsistencia(pastEvents)
-
+  console.log(pastEvents);
 }
 
 iniciar();
 
+function eventosPast(array, fecha) {
+  return array.filter(event => event.date < fecha);
+}
+
+function eventosUpcoming(array, fecha) {
+  return array.filter(event => event.date > fecha);
+}
+
 //Tabla 1
-
-let segundaTabla = document.getElementById("segundaTabla");
-let tercerTabla = document.getElementById("tercerTabla");
-
-
 function creacionPrimerTabla() {
   document.getElementById("primerTabla").innerHTML = `<thead>
-    <tr>
+  <tr>
+  <th colspan = "3">EVENTS STATISTICS</th>
+</tr>
+  </thead> 
+   <tr>
       <th scope="col">Event with the highest percentage of attendance</th>
       <th scope="col">Event with the lowest percentage of attendance</th>
       <th scope="col">Event with larger capacity</th>
     </tr>
-  </thead>
   <tbody>
   <tr class= "mayorAsistenciaTR">
     <td class = "mayorAsistencia"></td>
-    <td class = "menorAsistencia">Otto</td>
-    <td class = "mayorCapacidad">@mdo</td>
+    <td class = "menorAsistencia"></td>
+    <td class = "mayorCapacidad"></td>
   </tr>
   </tbody>`
 }
 creacionPrimerTabla()
 
 //Evento con el mayor porcentaje de asistencia 
-
 function mayorPorcentajeAsistencia(array) {
   let porcentajesMayor = []
   array.forEach(element => {
-    porcentajesMayor +=((element.assistance / element.capacity) * 100)
-    
-  }) 
-  console.log(porcentajesMayor);
-let mayorAsistencia = Math.max(...porcentajesMayor)
-console.log(mayorAsistencia);
- document.querySelector("#primerTabla .mayorAsistenciaTR .mayorAsistencia").innerHTML = mayorAsistencia
+    porcentajesMayor += element.name + (Number(element.assistance) / Number(element.capacity) * 100)
+  })
+  // document.querySelector("#primerTabla .mayorAsistenciaTR .mayorAsistencia").innerHTML = mayorAsistencia
 }
 
 
 
- 
+
 //Evento con el menor porcentaje de asistencia
-
 function menorPorcentajeAsistencia(array) {
-  let porcentajesMenor = []
-  array.forEach(element => {
-    porcentajesMenor +=((element.assistance / element.capacity) * 100)
-    
-  }) 
-  console.log(porcentajesMenor);
-let menorAsistencia = Math.min(...porcentajesMenor)
-console.log(menorAsistencia);
- document.querySelector("#primerTabla .mayorAsistenciaTR .menorAsistencia").innerHTML = menorAsistencia
+  array.sort(function (a, b) {
+    if ((a.assistance/a.capacity)*100 > (b.assistance/b.capacity)*100) {
+      return 1;
+    }
+    if ((a.assistance/a.capacity)*100 < (b.assistance/b.capacity)*100) {
+      return -1;
+    }
+    return 0;
+  });
+    document.querySelector("#primerTabla .mayorAsistenciaTR .mayorAsistencia").innerHTML = pastEvents
 }
+
+
 
 
 //evento con mayor capacidad.
-
 function mayorCapacidad(array) {
-  let capacidades = array.map
+  let capacidad = array.map((event) => event.capacity)
 }
 
 //Tabla 2
+function creacionSegundaTabla() {
+  document.getElementById("segundaTabla").innerHTML = `<thead>
+  <tr>
+  <th colspan = "3">UPCOMING EVENTS STATISTCS BY CATEGORY</th>
+</tr>
+  </thead> 
+  <tbody class = "cuerpoTablaDos">
+   <tr class= "food">
+    <td class = "categorias"></td>
+    <td class = "ganancias"></td>
+    <td class = "asistencia"></td>
+   </tr>
+  <tr class= "museum">
+  <td class = "categorias"></td>
+  <td class = "ganancias"></td>
+  <td class = "asistencia"></td>
+</tr>
+<tr class= "concert">
+<td class = "categorias"></td>
+<td class = "ganancias"></td>
+<td class = "asistencia"></td>
+</tr>
+<tr class= "race">
+<td class = "categorias"></td>
+<td class = "ganancias"></td>
+<td class = "asistencia"></td>
+</tr>
+<tr class= "book">
+<td class = "categorias"></td>
+<td class = "ganancias"></td>
+<td class = "asistencia"></td>
+</tr>
+<tr class= "party">
+<td class = "categorias"></td>
+<td class = "ganancias"></td>
+<td class = "asistencia"></td>
+</tr>
+  </tbody>`
+}
+creacionSegundaTabla()
 
 // Categorías
 
@@ -95,6 +137,46 @@ function mayorCapacidad(array) {
 //Porcentaje de asistencia.
 
 //Tabla 3
+function creacionTercerTabla(array) {
+  document.getElementById("tercerTabla").innerHTML = `<thead>
+  <tr>
+  <th colspan = "3">PAST EVENTS STATISTCS BY CATEGORY</th>
+</tr>
+  </thead> 
+  <tbody class = "cuerpoTablaTres">
+  <tr class= "food">
+    <td class = "categorias"></td>
+    <td class = "ganancias"></td>
+    <td class = "asistencia"></td>
+  </tr>
+  <tr class= "museum">
+  <td class = "categorias"></td>
+  <td class = "ganancias"></td>
+  <td class = "asistencia"></td>
+</tr>
+<tr class= "concert">
+<td class = "categorias"></td>
+<td class = "ganancias"></td>
+<td class = "asistencia"></td>
+</tr>
+<tr class= "race">
+<td class = "categorias"></td>
+<td class = "ganancias"></td>
+<td class = "asistencia"></td>
+</tr>
+<tr class= "book">
+<td class = "categorias"></td>
+<td class = "ganancias"></td>
+<td class = "asistencia"></td>
+</tr>
+<tr class= "party">
+<td class = "categorias"></td>
+<td class = "ganancias"></td>
+<td class = "asistencia"></td>
+</tr>
+  </tbody>`
+}
+creacionTercerTabla()
 
 // Categorías
 

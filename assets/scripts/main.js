@@ -100,3 +100,21 @@ document.addEventListener("keyup", (e) => {
 
 
 
+// ------------------------------------------------------------------------------------------
+// async function iniciar() {
+//   const data = await pedirData();
+//   let pastEvents =  eventosPast(data.events, data.currentDate)
+//   console.log(pastEvents);
+//   let upcomingEvents = eventosUpcoming(data.events, data.currentDate);
+//   console.log(upcomingEvents);
+// }
+
+// iniciar();
+
+// function eventosPast(array, fecha) {
+//  return array.filter(event => event.date < fecha);
+// }
+
+// function eventosUpcoming(array, fecha) {
+//   return array.filter(event => event.date > fecha);
+//  }
