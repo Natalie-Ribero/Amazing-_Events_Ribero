@@ -27,6 +27,7 @@ async function iniciar() {
   porcentajeAsistenciaT2(upcomingEvents)
   porcentajeAsistenciaT3(pastEvents)
   categoryGananciaT2(upcomingEvents)
+  categoryGananciaT3(pastEvents)
 }
 
 iniciar();
@@ -153,12 +154,12 @@ pintarCategoriasT2()
 //Ganancias de todos los eventos de una categoría
 function categoryGananciaT2(array) {
   let food = array.filter(event => event.category === "Food")
-  let porcentajeFoodUpcoming = []
+  let gananciaFoodUpcoming = []
   for (let index = 0; index < food.length; index++) {
-    porcentajeFoodUpcoming += (food[index].estimate) / (food[index].capacity) * 100
+    gananciaFoodUpcoming += (food[index].estimate) / (food[index].capacity) * 100
   }
-  console.log(porcentajeFoodUpcoming);
-  document.querySelector("#segundaTabla .food .ganancias").innerHTML = `${porcentajeFoodUpcoming}%`
+  console.log(gananciaFoodUpcoming);
+  document.querySelector("#segundaTabla .food .ganancias").innerHTML = `${gananciaFoodUpcoming}%`
 }
 
 //Porcentaje de asistencia.
@@ -168,7 +169,6 @@ function porcentajeAsistenciaT2(array) {
   for (let index = 0; index < food.length; index++) {
     porcentajeFoodUpcoming += (food[index].estimate) / (food[index].capacity) * 100
   }
-  console.log(porcentajeFoodUpcoming);
   document.querySelector("#segundaTabla .food .asistencia").innerHTML = `${porcentajeFoodUpcoming}%`
 
   let museum = array.filter(event => event.category === "Museum")
@@ -176,7 +176,6 @@ function porcentajeAsistenciaT2(array) {
   for (let index = 0; index < museum.length; index++) {
     porcentajeMuseumUpcoming += (museum[index].estimate) / (museum[index].capacity) * 100
   }
-  console.log(porcentajeFoodUpcoming);
   document.querySelector("#segundaTabla .museum .asistencia").innerHTML = `${porcentajeMuseumUpcoming}%`
 
   let concert = array.filter(event => event.category === "Concert")
@@ -184,7 +183,6 @@ function porcentajeAsistenciaT2(array) {
   for (let index = 0; index < concert.length; index++) {
     porcentajeConcertUpcoming += (concert[index].estimate) / (concert[index].capacity) * 100
   }
-  console.log(porcentajeConcertUpcoming);
   document.querySelector("#segundaTabla .concert .asistencia").innerHTML = `${porcentajeConcertUpcoming}%`
 
   let race = array.filter(event => event.category === "Race")
@@ -200,7 +198,6 @@ function porcentajeAsistenciaT2(array) {
   for (let index = 0; index < book.length; index++) {
     porcentajeBookUpcoming += (book[index].estimate) / (book[index].capacity) * 100
   }
-  console.log(porcentajeBookUpcoming);
   document.querySelector("#segundaTabla .book .asistencia").innerHTML = `${porcentajeBookUpcoming}%`
 
   let party = array.filter(event => event.category === "Party")
@@ -208,7 +205,6 @@ function porcentajeAsistenciaT2(array) {
   for (let index = 0; index < party.length; index++) {
     porcentajePartyUpcoming += (party[index].estimate) / (party[index].capacity) * 100
   }
-  console.log(porcentajePartyUpcoming);
   document.querySelector("#segundaTabla .party .asistencia").innerHTML = `${porcentajePartyUpcoming}%`
 }
 
@@ -275,9 +271,63 @@ function pintarCategoriasT3() {
   document.querySelector(`#tercerTabla .cinema .categorias`).innerHTML = `Cinema`
   document.querySelector(`#tercerTabla .party .categorias`).innerHTML = `Party`
 }
-
 pintarCategoriasT3()
+
 //Ganancias de todos los eventos de una categoría
+function categoryGananciaT3(array) {
+  let food = array.filter(event => event.category === "Food")
+  let porcentajeFoodPast = []
+  for (let index = 0; index < food.length; index++) {
+    porcentajeFoodPast = (food[index].assistance) * (food[index].price)
+  }
+  console.log(porcentajeFoodPast);
+  document.querySelector("#tercerTabla .food .ganancias").innerHTML = `$${porcentajeFoodPast}`
+
+//-----------------------------------------------------------------------------------------------------------
+
+  let museum = array.filter(event => event.category === "Museum")
+  let porcentajeMuseumPast = []
+  for (let index = 0; index < museum.length; index++) {
+    porcentajeFoodPast = (museum[index].assistance) * (museum[index].price)
+  }
+  console.log(porcentajeMuseumPast);
+  document.querySelector("#tercerTabla .museum .ganancias").innerHTML = `$${porcentajeMuseumPast}`
+
+//-----------------------------------------------------------------------------------------------------------
+let concert = array.filter(event => event.category === "Museum")
+let porcentajeMuseumPast = []
+for (let index = 0; index < concert.length; index++) {
+  porcentajeFoodPast = (concert[index].assistance) * (concert[index].price)
+}
+console.log(porcentajeMuseumPast);
+document.querySelector("#tercerTabla .museum .ganancias").innerHTML = `$${porcentajeMuseumPast}`
+//-----------------------------------------------------------------------------------------------------------
+let museum = array.filter(event => event.category === "Museum")
+let porcentajeMuseumPast = []
+for (let index = 0; index < museum.length; index++) {
+  porcentajeFoodPast = (museum[index].assistance) * (museum[index].price)
+}
+console.log(porcentajeMuseumPast);
+document.querySelector("#tercerTabla .museum .ganancias").innerHTML = `$${porcentajeMuseumPast}`
+//-----------------------------------------------------------------------------------------------------------
+let museum = array.filter(event => event.category === "Museum")
+let porcentajeMuseumPast = []
+for (let index = 0; index < museum.length; index++) {
+  porcentajeFoodPast = (museum[index].assistance) * (museum[index].price)
+}
+console.log(porcentajeMuseumPast);
+document.querySelector("#tercerTabla .museum .ganancias").innerHTML = `$${porcentajeMuseumPast}`
+//-----------------------------------------------------------------------------------------------------------
+let museum = array.filter(event => event.category === "Museum")
+let porcentajeMuseumPast = []
+for (let index = 0; index < museum.length; index++) {
+  porcentajeFoodPast = (museum[index].assistance) * (museum[index].price)
+}
+console.log(porcentajeMuseumPast);
+document.querySelector("#tercerTabla .museum .ganancias").innerHTML = `$${porcentajeMuseumPast}`
+//-----------------------------------------------------------------------------------------------------------
+}
+
 //Porcentaje de asistencia.
 function porcentajeAsistenciaT3(array) {
   let food = array.filter(event => event.category === "Food")
@@ -287,12 +337,16 @@ function porcentajeAsistenciaT3(array) {
   }
   document.querySelector("#tercerTabla .food .asistencia").innerHTML = `${porcentajeFoodPast}%`
 
+//-----------------------------------------------------------------------------------------------------------
+
   let museum = array.filter(event => event.category === "Museum")
   let porcentajeMuseumPast = []
   for (let index = 0; index < museum.length; index++) {
     porcentajeMuseumPast += (museum[index].assistance) / (museum[index].capacity) * 100
   }
   document.querySelector("#tercerTabla .museum .asistencia").innerHTML = `${porcentajeMuseumPast}%`
+
+//-----------------------------------------------------------------------------------------------------------
 
   let concert = array.filter(event => event.category === "Concert")
   let porcentajeConcertPast = []
@@ -301,12 +355,16 @@ function porcentajeAsistenciaT3(array) {
   }
   document.querySelector("#tercerTabla .concert .asistencia").innerHTML = `${porcentajeConcertPast}%`
 
+//-----------------------------------------------------------------------------------------------------------
+
   let race = array.filter(event => event.category === "Race")
   let porcentajeRacePast = []
   for (let index = 0; index < race.length; index++) {
     porcentajeRacePast += (race[index].assistance) / (race[index].capacity) * 100
   }
   document.querySelector("#tercerTabla .race .asistencia").innerHTML = `${porcentajeRacePast}%`
+
+//-----------------------------------------------------------------------------------------------------------
 
   let book = array.filter(event => event.category === "Book")
   let porcentajeBookPast = []
@@ -315,12 +373,16 @@ function porcentajeAsistenciaT3(array) {
   }
   document.querySelector("#tercerTabla .book .asistencia").innerHTML = `${porcentajeBookPast}%`
 
+//-----------------------------------------------------------------------------------------------------------
+
   let cinema = array.filter(event => event.category === "Cinema")
   let porcentajeCinemaPast = []
   for (let index = 0; index < cinema.length; index++) {
     porcentajeCinemaPast += (cinema[index].assistance) / (cinema[index].capacity) * 100
   }
   document.querySelector("#tercerTabla .cinema .asistencia").innerHTML = `${porcentajeCinemaPast}%`
+
+//-----------------------------------------------------------------------------------------------------------
 
   let party = array.filter(event => event.category === "Party")
   let porcentajePartyPast = []
@@ -339,3 +401,13 @@ function porcentajeAsistenciaT3(array) {
 
 // 📌 Ganancias: sumar todos los precios de los eventos (precio del evento multiplicado por asistencia) de una categoría.
 // debería ser ilegal esta ayuda, pero bueno, task resuelta, lo que dije, pasan a código
+
+function suma(array) {
+  let sum = 0;
+for (let number of array) {
+  sum += number;
+}
+console.log(sum);
+return sum;
+}
+
