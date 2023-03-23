@@ -17,7 +17,8 @@ async function iniciar() {
   const data = await pedirData();
   console.log(data);
   let pastEvents = await data.events.filter(event => event.date < data.currentDate);
-   porcentajeAsistencia(pastEvents)
+  mayorPorcentajeAsistencia(pastEvents)
+  menorPorcentajeAsistencia(pastEvents)
 
 }
 
@@ -27,13 +28,7 @@ iniciar();
 
 let segundaTabla = document.getElementById("segundaTabla");
 let tercerTabla = document.getElementById("tercerTabla");
-let porcentajes = []
 
-function porcentajeAsistencia(array) {
-  array.forEach(element => {
-    porcentajes += " " + ((element.assistance / element.capacity) * 100)
-  })
-}
 
 function creacionPrimerTabla() {
   document.getElementById("primerTabla").innerHTML = `<thead>
@@ -53,16 +48,59 @@ function creacionPrimerTabla() {
 }
 creacionPrimerTabla()
 
+//Evento con el mayor porcentaje de asistencia 
 
-function pintarEventoMayorAsistencia() {
-  porcentajes.sort(function(a, b) {
-    return a - b;
-  });
- document.querySelector("#primerTabla .mayorAsistenciaTR .mayorAsistencia").innerHTML = porcentajes
+function mayorPorcentajeAsistencia(array) {
+  let porcentajesMayor = []
+  array.forEach(element => {
+    porcentajesMayor +=((element.assistance / element.capacity) * 100)
+    
+  }) 
+  console.log(porcentajesMayor);
+let mayorAsistencia = Math.max(...porcentajesMayor)
+console.log(mayorAsistencia);
+ document.querySelector("#primerTabla .mayorAsistenciaTR .mayorAsistencia").innerHTML = mayorAsistencia
 }
-pintarEventoMayorAsistencia()
 
 
+
+ 
+//Evento con el menor porcentaje de asistencia
+
+function menorPorcentajeAsistencia(array) {
+  let porcentajesMenor = []
+  array.forEach(element => {
+    porcentajesMenor +=((element.assistance / element.capacity) * 100)
+    
+  }) 
+  console.log(porcentajesMenor);
+let menorAsistencia = Math.min(...porcentajesMenor)
+console.log(menorAsistencia);
+ document.querySelector("#primerTabla .mayorAsistenciaTR .menorAsistencia").innerHTML = menorAsistencia
+}
+
+
+//evento con mayor capacidad.
+
+function mayorCapacidad(array) {
+  let capacidades = array.map
+}
+
+//Tabla 2
+
+// Categorías
+
+//Ganancias de todos los eventos de una categoría
+
+//Porcentaje de asistencia.
+
+//Tabla 3
+
+// Categorías
+
+//Ganancias de todos los eventos de una categoría
+
+//Porcentaje de asistencia.
 
 
 // 1ER TABLA EVENTOS PASADOS: Evento con el mayor porcentaje de asistencia | Evento con el menor porcentaje de asistencia | evento con mayor capacidad.
