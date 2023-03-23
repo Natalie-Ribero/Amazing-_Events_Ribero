@@ -24,6 +24,9 @@ async function iniciar() {
   document.querySelector("#primerTabla .mayorAsistenciaTR .mayorCapacidad").innerHTML = `${arrayOrdenadoCapacidad[0].name + " (" + arrayOrdenadoCapacidad[0].capacity})`
   console.log(pastEvents);
   console.log(upcomingEvents);
+  porcentajeAsistenciaT2(upcomingEvents)
+  porcentajeAsistenciaT3(pastEvents)
+  categoryGananciaT2(upcomingEvents)
 }
 
 iniciar();
@@ -97,6 +100,11 @@ function creacionSegundaTabla() {
 </tr>
   </thead> 
   <tbody class = "cuerpoTablaDos">
+  <tr>
+  <th scope="col">Categories</th>
+  <th scope="col">Revenues</th>
+  <th scope="col">Percentage of attendance</th>
+</tr>
    <tr class= "food">
     <td class = "categorias"></td>
     <td class = "ganancias"></td>
@@ -143,10 +151,66 @@ function pintarCategoriasT2() {
 pintarCategoriasT2()
 
 //Ganancias de todos los eventos de una categoría
-
-
+function categoryGananciaT2(array) {
+  let food = array.filter(event => event.category === "Food")
+  let porcentajeFoodUpcoming = []
+  for (let index = 0; index < food.length; index++) {
+    porcentajeFoodUpcoming += (food[index].estimate) / (food[index].capacity) * 100
+  }
+  console.log(porcentajeFoodUpcoming);
+  document.querySelector("#segundaTabla .food .ganancias").innerHTML = `${porcentajeFoodUpcoming}%`
+}
 
 //Porcentaje de asistencia.
+function porcentajeAsistenciaT2(array) {
+  let food = array.filter(event => event.category === "Food")
+  let porcentajeFoodUpcoming = []
+  for (let index = 0; index < food.length; index++) {
+    porcentajeFoodUpcoming += (food[index].estimate) / (food[index].capacity) * 100
+  }
+  console.log(porcentajeFoodUpcoming);
+  document.querySelector("#segundaTabla .food .asistencia").innerHTML = `${porcentajeFoodUpcoming}%`
+
+  let museum = array.filter(event => event.category === "Museum")
+  let porcentajeMuseumUpcoming = []
+  for (let index = 0; index < museum.length; index++) {
+    porcentajeMuseumUpcoming += (museum[index].estimate) / (museum[index].capacity) * 100
+  }
+  console.log(porcentajeFoodUpcoming);
+  document.querySelector("#segundaTabla .museum .asistencia").innerHTML = `${porcentajeMuseumUpcoming}%`
+
+  let concert = array.filter(event => event.category === "Concert")
+  let porcentajeConcertUpcoming = []
+  for (let index = 0; index < concert.length; index++) {
+    porcentajeConcertUpcoming += (concert[index].estimate) / (concert[index].capacity) * 100
+  }
+  console.log(porcentajeConcertUpcoming);
+  document.querySelector("#segundaTabla .concert .asistencia").innerHTML = `${porcentajeConcertUpcoming}%`
+
+  let race = array.filter(event => event.category === "Race")
+  let porcentajeRaceUpcoming = []
+  for (let index = 0; index < race.length; index++) {
+    porcentajeRaceUpcoming += (race[index].estimate) / (race[index].capacity) * 100
+  }
+  console.log(porcentajeRaceUpcoming);
+  document.querySelector("#segundaTabla .race .asistencia").innerHTML = `${porcentajeRaceUpcoming}%`
+
+  let book = array.filter(event => event.category === "Book")
+  let porcentajeBookUpcoming = []
+  for (let index = 0; index < book.length; index++) {
+    porcentajeBookUpcoming += (book[index].estimate) / (book[index].capacity) * 100
+  }
+  console.log(porcentajeBookUpcoming);
+  document.querySelector("#segundaTabla .book .asistencia").innerHTML = `${porcentajeBookUpcoming}%`
+
+  let party = array.filter(event => event.category === "Party")
+  let porcentajePartyUpcoming = []
+  for (let index = 0; index < party.length; index++) {
+    porcentajePartyUpcoming += (party[index].estimate) / (party[index].capacity) * 100
+  }
+  console.log(porcentajePartyUpcoming);
+  document.querySelector("#segundaTabla .party .asistencia").innerHTML = `${porcentajePartyUpcoming}%`
+}
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
 //Tabla 3
@@ -157,6 +221,11 @@ function creacionTercerTabla(array) {
 </tr>
   </thead> 
   <tbody class = "cuerpoTablaTres">
+  <tr>
+  <th scope="col">Categories</th>
+  <th scope="col">Revenues</th>
+  <th scope="col">Percentage of attendance</th>
+</tr>
   <tr class= "food">
     <td class = "categorias"></td>
     <td class = "ganancias"></td>
@@ -208,25 +277,65 @@ function pintarCategoriasT3() {
 }
 
 pintarCategoriasT3()
-
 //Ganancias de todos los eventos de una categoría
-
-
-
 //Porcentaje de asistencia.
+function porcentajeAsistenciaT3(array) {
+  let food = array.filter(event => event.category === "Food")
+  let porcentajeFoodPast = []
+  for (let index = 0; index < food.length; index++) {
+    porcentajeFoodPast += parseInt(((food[index].assistance) / (food[index].capacity)) * 100)
+  }
+  document.querySelector("#tercerTabla .food .asistencia").innerHTML = `${porcentajeFoodPast}%`
+
+  let museum = array.filter(event => event.category === "Museum")
+  let porcentajeMuseumPast = []
+  for (let index = 0; index < museum.length; index++) {
+    porcentajeMuseumPast += (museum[index].assistance) / (museum[index].capacity) * 100
+  }
+  document.querySelector("#tercerTabla .museum .asistencia").innerHTML = `${porcentajeMuseumPast}%`
+
+  let concert = array.filter(event => event.category === "Concert")
+  let porcentajeConcertPast = []
+  for (let index = 0; index < concert.length; index++) {
+    porcentajeConcertPast += (concert[index].assistance) / (concert[index].capacity) * 100
+  }
+  document.querySelector("#tercerTabla .concert .asistencia").innerHTML = `${porcentajeConcertPast}%`
+
+  let race = array.filter(event => event.category === "Race")
+  let porcentajeRacePast = []
+  for (let index = 0; index < race.length; index++) {
+    porcentajeRacePast += (race[index].assistance) / (race[index].capacity) * 100
+  }
+  document.querySelector("#tercerTabla .race .asistencia").innerHTML = `${porcentajeRacePast}%`
+
+  let book = array.filter(event => event.category === "Book")
+  let porcentajeBookPast = []
+  for (let index = 0; index < book.length; index++) {
+    porcentajeBookPast += (book[index].assistance) / (book[index].capacity) * 100
+  }
+  document.querySelector("#tercerTabla .book .asistencia").innerHTML = `${porcentajeBookPast}%`
+
+  let cinema = array.filter(event => event.category === "Cinema")
+  let porcentajeCinemaPast = []
+  for (let index = 0; index < cinema.length; index++) {
+    porcentajeCinemaPast += (cinema[index].assistance) / (cinema[index].capacity) * 100
+  }
+  document.querySelector("#tercerTabla .cinema .asistencia").innerHTML = `${porcentajeCinemaPast}%`
+
+  let party = array.filter(event => event.category === "Party")
+  let porcentajePartyPast = []
+  for (let index = 0; index < party.length; index++) {
+    porcentajePartyPast += (party[index].assistance) / (party[index].capacity) * 100
+  }
+  document.querySelector("#tercerTabla .party .asistencia").innerHTML = `${porcentajePartyPast}%`
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------
-// 2DA TABLA EVENTOS FUTUROS: Categorías | Ganancias de todos los eventos de una categoría | Porcentaje de asistencia.
 
 // 3ER TABLA EVENTOS PASADOS: Categorías | Ganancias de todos los eventos de una categoría | Porcentaje de asistencia.
 
 //                                               asistencia dividido capacidad por cien.
 // 📌Porcentaje de asistencia: (asistencia / capacidad) x 100. (asistencia = assistance o estimate).
-
-// 📌Porcentaje de asistencia de la segunda y tercer tabla: los resultados de la tabla resuelta que pasé son promedios, no porcentajes, ustedes lo pueden hacer de las dos formas:
-// porcentaje: suman toda la asistencia de los eventos de esa categoría, después suman toda la capacidad de los eventos de esa categoría y ahí hacen el porcentaje total.
-// promedio: de cada porcentaje de asistencia lo dividen por la cantidad de eventos, es decir, si tengo 4 eventos voy a tener 4 porcentajes y eso lo divido por 4
-// ej museum: los porcentajes de los cuatro eventos a esa categoría son 100%, 100%, 84,375%, 81,666% / 4 = 91,50%  (resultado de la tabla).
 
 // 📌 Ganancias: sumar todos los precios de los eventos (precio del evento multiplicado por asistencia) de una categoría.
 // debería ser ilegal esta ayuda, pero bueno, task resuelta, lo que dije, pasan a código
