@@ -34,7 +34,7 @@ async function iniciar() {
 <h6 class="card-title">Price: ${character.price} USD</h6>
 <h6 class="card-title">Place: ${character.place}</h6>   
 <h6 class="card-title">Capacity: ${character.capacity}</h6>   
-<h6 class="card-title">Assistance: ${character.assistance}</h6>   
+<h6 class="card-title">Assistance: ${character.assistance || character.estimate}</h6>   
 <p class="card-text">${character.description}</p>
 <a href="./index.html" class="btn btn-primary">Go back to start</a>
 </div>
