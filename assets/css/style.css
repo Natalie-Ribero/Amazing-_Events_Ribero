@@ -52,6 +52,7 @@ header {
 
 .card img {
     border-radius: 10px 10px 0 0;
+    height: 25vh;
 }
 
 #contenedorCards {
@@ -271,9 +272,6 @@ textarea,
 
     /* Altura en paginas */
 
-    .estilocard img {
-        height: 25vh;
-    }
 
     img[src="./assets/img/logoAmazingEvents.png"] {
         width: 15vw !important;
@@ -294,29 +292,6 @@ textarea,
         justify-content: center;
         align-items: center;
         height: 90vh;
-    }
-
-    .details {
-        display: flex;
-        background-color: #EF5350;
-        width: 45vw;
-        height: 25vw;
-        justify-content: space-evenly;
-        align-items: center;
-        flex-direction: row;
-    }
-
-    .cuadro1 {
-        background-color: aqua;
-        width: 20vw;
-        height: 20vw;
-        box-shadow: -19px -16px 25px 4px rgba(0, 0, 0, 0.47);
-    }
-
-    .cuadro2 {
-        background-color: rgb(94, 255, 0);
-        width: 20vw;
-        height: 20vw;
     }
 
     .botonBuscar {
