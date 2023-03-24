@@ -316,7 +316,7 @@ pintarCategoriasT3()
 //Ganancias de todos los eventos de una categoría
 function calcularGananciaT3(array, guardar) {
   for (let index = 0; index < array.length; index++) {
-    let numero = Number((array[index].estimate) * (array[index].price))
+    let numero = Number((array[index].assistance) * (array[index].price))
     guardar.push(numero)
   }
   let total = guardar.reduce((a, b) => a + b, 0);
@@ -325,58 +325,44 @@ function calcularGananciaT3(array, guardar) {
 
 async function categoryGananciaT3(array) {
   let food = array.filter(event => event.category === "Food")
-  let porcentajeFoodPast = []
-  for (let index = 0; index < food.length; index++) {
-    porcentajeFoodPast = (Number((food[index].assistance) * (food[index].price)))
-  }
-  document.querySelector("#tercerTabla .food .ganancias").innerHTML = `$${porcentajeFoodPast}`
+  let gananciaFoodPast = []
+  let arrayGananciaF = await calcularGananciaT3(food, gananciaFoodPast)
+  document.querySelector("#tercerTabla .food .ganancias").innerHTML = `$${arrayGananciaF}`
 
   //-----------------------------------------------------------------------------------------------------------
 
   let museum = array.filter(event => event.category === "Museum")
-  let porcentajeMuseumPast = []
-  for (let index = 0; index < museum.length; index++) {
-    porcentajeMuseumPast += (museum[index].assistance) * (museum[index].price)
-  }
-  document.querySelector("#tercerTabla .museum .ganancias").innerHTML = `$${porcentajeMuseumPast}`
+  let gananciaMuseumPast = []
+  let arrayGananciaM = await calcularGananciaT3(museum, gananciaMuseumPast)
+  document.querySelector("#tercerTabla .museum .ganancias").innerHTML = `$${arrayGananciaM}`
 
   //-----------------------------------------------------------------------------------------------------------
   let concert = array.filter(event => event.category === "Concert")
-  let porcentajeConcertPast = []
-  for (let index = 0; index < concert.length; index++) {
-    porcentajeConcertPast += (concert[index].assistance) * (concert[index].price)
-  }
-  document.querySelector("#tercerTabla .concert .ganancias").innerHTML = `$${porcentajeConcertPast}`
+  let gananciaConcertPast = []
+  let arrayGananciaC = await calcularGananciaT3(concert, gananciaConcertPast)
+  document.querySelector("#tercerTabla .concert .ganancias").innerHTML = `$${arrayGananciaC}`
   //-----------------------------------------------------------------------------------------------------------
   let race = array.filter(event => event.category === "Race")
-  let porcentajeRacePast = []
-  for (let index = 0; index < race.length; index++) {
-    porcentajeRacePast += (race[index].assistance) * (race[index].price)
-  }
-  document.querySelector("#tercerTabla .race .ganancias").innerHTML = `$${porcentajeRacePast}`
+  let gananciaRacePast = []
+  let arrayGananciaR = await calcularGananciaT3(race, gananciaRacePast)
+  document.querySelector("#tercerTabla .race .ganancias").innerHTML = `$${arrayGananciaR}`
   //-----------------------------------------------------------------------------------------------------------
   let book = array.filter(event => event.category === "Books")
-  let porcentajeBookPast = []
-  for (let index = 0; index < book.length; index++) {
-    porcentajeBookPast += (book[index].assistance) * (book[index].price)
-  }
-  document.querySelector("#tercerTabla .book .ganancias").innerHTML = `$${porcentajeBookPast}`
+  let gananciaBookPast = []
+  let arrayGananciaB = await calcularGananciaT3(book, gananciaBookPast)
+  document.querySelector("#tercerTabla .book .ganancias").innerHTML = `$${arrayGananciaB}`
   //-----------------------------------------------------------------------------------------------------------
   //Funciona
   let cinema = array.filter(event => event.category === "Cinema")
-  let porcentajeCinemaPast = []
-  for (let index = 0; index < cinema.length; index++) {
-    porcentajeCinemaPast += ((cinema[index].assistance) * (cinema[index].price))
-  }
-  document.querySelector("#tercerTabla .cinema .ganancias").innerHTML = `$${porcentajeCinemaPast}`
+  let gananciaCinemaPast = []
+  let arrayGananciaCi = await calcularGananciaT3(cinema, gananciaCinemaPast)
+  document.querySelector("#tercerTabla .cinema .ganancias").innerHTML = `$${arrayGananciaCi}`
   //-----------------------------------------------------------------------------------------------------------
   //Funciona
   let party = array.filter(event => event.category === "Party")
-  let porcentajePartyPast = []
-  for (let index = 0; index < party.length; index++) {
-    porcentajePartyPast += ((party[index].assistance) * (party[index].price))
-  }
-  document.querySelector("#tercerTabla .party .ganancias").innerHTML = `$${porcentajePartyPast}`
+  let gananciaPartyPast = []
+  let arrayGananciaP = await calcularGananciaT3(party, gananciaPartyPast)
+  document.querySelector("#tercerTabla .party .ganancias").innerHTML = `$${arrayGananciaP}`
 }
 
 //Porcentaje de asistencia.
