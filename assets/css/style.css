@@ -1,0 +1,285 @@
+/* First mobile */
+/* Normalizacion */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 1px solid yellowgreen
+}
+
+header {
+    margin-bottom: 2vh;
+}
+
+.nav-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EF5350;
+}
+
+.category {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    height: max-content;
+}
+
+.category1{
+    display: flex;
+}
+
+
+main {
+    display: flex;
+}
+
+div form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 2vw;
+}
+
+h2 {
+    font-size: 5vw;
+}
+
+li a[href="#"] {
+    background-color: rgb(112, 6, 6) !important;
+    border: 1px solid red;
+}
+
+li a {
+    text-align: center;
+}
+
+img[src="./assets/img/logoAmazingEvents.png"] {
+    width: 50vw !important;
+}
+
+.tableContainer {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    background-color: rgba(33, 179, 45, 0.151);
+    margin: 1.5vw;
+}
+
+td,
+th {
+    padding: .5vw;
+    border: 1px solid rgb(0, 0, 0);
+    text-align: center;
+}
+
+
+a[role="button"] {
+    background-color: #EF5350;
+}
+
+a img {
+    width: 5vw;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+
+form[role="search"] {
+    margin-bottom: 1vh;
+}
+
+.tar {
+    display: flex;
+    justify-content: center;
+}
+
+.tarjetas {
+    display: flex;
+    margin-top: 2vh;
+}
+
+.tarjetas1 {
+    display: flex;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(219, 14, 14);
+
+}
+
+.contactHeader {
+    height: 15vh;
+}
+
+.contactMain {
+    height: 80vh;
+}
+
+.contactFooter {
+    height: 5vh;
+}
+
+.rrss img {
+    width: 7vw;
+}
+
+.cohorte {
+    font-size: 3vh;
+}
+
+.detailsMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.details {
+    display: flex;
+    background-color: #EF5350;
+    width: 50vh;
+    height: 90vh;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cuadro1 {
+    background-color: aqua;
+    width: 40vh;
+    height: 40vh;
+}
+
+.cuadro2 {
+    display: flex;
+    background-color: rgb(94, 255, 0);
+    width: 40vh;
+    height: 40vh;
+    text-align: center;
+    flex-direction: column;
+}
+
+.detailsHeader {
+    height: 5vh;
+}
+
+.detailsFooter {
+    height: 5vh;
+}
+
+.cuadro2 p {
+    margin: 2px;
+}
+
+
+
+/* Pantallas grandes */
+
+@media (min-width: 990px) {
+
+
+    img[src="./assets/img/logoAmazingEvents.png"] {
+        width: 15vw !important;
+    }
+
+    .rrss img {
+        width: 2vw;
+    }
+
+    header,
+    .contactHeader {
+        height: 22vh;
+    }
+
+    .category {
+        height: 8vh;
+        align-content: space-around;
+    }
+
+    main {
+        height: 63vh;
+    }
+
+    footer {
+        height: 5vh;
+    }
+
+    .tarjetas,
+    .tarjetas1 {
+        height: 25rem;
+    }
+
+    .contenedorTar{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .tarjetas1 {
+        display: flex;
+        margin-top: 2vh;
+        margin-bottom: 0vh;
+    }
+
+    .contactMain {
+        height: 73vh;
+    }
+
+    .tableContainer {
+        height: max-content;
+    }
+
+    .detailsMain {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+    }
+
+    .details {
+        display: flex;
+        background-color: #EF5350;
+        width: 45vw;
+        height: 25vw;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .cuadro1 {
+        background-color: aqua;
+        width: 20vw;
+        height: 20vw;
+        box-shadow: -19px -16px 25px 4px rgba(0, 0, 0, 0.47);
+    }
+
+    .cuadro2 {
+        background-color: rgb(94, 255, 0);
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .detailsHeader {
+        height: 5vh;
+    }
+
+    .detailsFooter {
+        height: 5vh;
+    }
+
+    .botonBuscar {
+        width: 30vw;
+        flex-direction: row;
+        align-content: center
+    }
+}
