@@ -142,6 +142,10 @@ footer {
 
 }
 
+.filtro {
+    display: none;
+}
+
 .rrss img {
     width: 10vw;
     border-radius: 50px;
@@ -278,5 +282,20 @@ label {
         width: 30vw;
         flex-direction: row;
         align-content: center
+    }
+
+    .card:hover {
+        transform: translate(-10px, -10px);
+        transition: transform .5s;
+    }
+
+    label {
+        margin-right: 2vw;
+        margin-bottom: 2vh;
+    }
+
+    .buscar {
+        flex-wrap: nowrap;
+        flex-direction: row;
     }
 }
