@@ -196,7 +196,9 @@ label {
     color: white;
 }
 
-textarea, .name, .email {
+textarea,
+.name,
+.email {
     width: 30vw;
     border-color: blue;
     box-shadow: -19px -16px 25px 4px rgba(0, 0, 0, 0.47);
@@ -207,13 +209,29 @@ textarea, .name, .email {
     margin-right: 2vw;
 }
 
-#contactImg{
+#contactImg {
     height: 40vh;
 }
 
 .contact {
     display: flex;
     justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+    .category {
+        display: flex;
+        gap: 2vh;
+        flex-wrap: wrap;
+    }
+
+    .labels {
+        display: flex;
+        gap: 1vh;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
 }
 
 @media (min-width: 990px) {
