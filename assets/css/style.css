@@ -4,18 +4,35 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    border: 1px solid yellowgreen
+    /* border: 1px solid yellowgreen */
+}
+
+a p {
+    font-size: 7vw;
+}
+
+body {
+    background: rgb(11, 137, 177);
+    background: linear-gradient(90deg, rgba(11, 137, 177, 1) 0%, rgba(87, 47, 150, 1) 43%, rgba(108, 136, 235, 1) 100%);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 header {
     margin-bottom: 2vh;
 }
 
+.claseBg {
+    background: rgb(63, 94, 251);
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+}
+
 .nav-2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #EF5350;
+    background: rgb(11, 137, 177);
+    background: linear-gradient(90deg, rgba(11, 137, 177, 1) 0%, rgba(87, 47, 150, 1) 43%, rgba(108, 136, 235, 1) 100%);
+    border-bottom: 1px solid rgb(255, 255, 255);
 }
 
 .category {
@@ -26,13 +43,31 @@ header {
     height: max-content;
 }
 
-.category1{
-    display: flex;
+.card {
+    border-radius: 10px;
+    box-shadow:
+        0 0 0 2px rgb(255, 255, 255),
+        0.3em 0.3em 1em rgba(247, 0, 255, 0.993);
 }
 
+.card img {
+    border-radius: 10px 10px 0 0;
+}
+
+#contenedorCards {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
 
 main {
     display: flex;
+}
+
+#contenedorCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3vh;
 }
 
 div form {
@@ -44,6 +79,7 @@ div form {
 
 h2 {
     font-size: 5vw;
+    color: white;
 }
 
 li a[href="#"] {
@@ -57,6 +93,13 @@ li a {
 
 img[src="./assets/img/logoAmazingEvents.png"] {
     width: 50vw !important;
+    background-color: rgb(255, 255, 255);
+    opacity: .5;
+    border-radius: 7px;
+}
+
+.nav-item a {
+    border-radius: 7px;
 }
 
 .tableContainer {
@@ -65,30 +108,21 @@ img[src="./assets/img/logoAmazingEvents.png"] {
 }
 
 table {
-    background-color: rgba(33, 179, 45, 0.151);
+    background-color: rgba(255, 255, 255, 0.151);
     margin: 1.5vw;
 }
 
 td,
 th {
     padding: .5vw;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
     text-align: center;
-}
-
-
-a[role="button"] {
-    background-color: #EF5350;
+    color: white;
 }
 
 a img {
     width: 5vw;
 }
-
-.rotate {
-    transform: rotate(180deg);
-}
-
 
 form[role="search"] {
     margin-bottom: 1vh;
@@ -99,38 +133,18 @@ form[role="search"] {
     justify-content: center;
 }
 
-.tarjetas {
-    display: flex;
-    margin-top: 2vh;
-}
-
-.tarjetas1 {
-    display: flex;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-}
 
 footer {
     display: flex;
     flex-direction: column;
-    background-color: rgb(219, 14, 14);
+    background: rgb(63, 94, 251);
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
 
-}
-
-.contactHeader {
-    height: 15vh;
-}
-
-.contactMain {
-    height: 80vh;
-}
-
-.contactFooter {
-    height: 5vh;
 }
 
 .rrss img {
-    width: 7vw;
+    width: 10vw;
+    border-radius: 50px;
 }
 
 .cohorte {
@@ -169,24 +183,54 @@ footer {
     flex-direction: column;
 }
 
-.detailsHeader {
-    height: 5vh;
-}
-
-.detailsFooter {
-    height: 5vh;
-}
-
 .cuadro2 p {
     margin: 2px;
 }
 
-
-
-/* Pantallas grandes */
+label {
+    color: white;
+}
 
 @media (min-width: 990px) {
 
+    #navbarSupportedContent {
+        flex-grow: 0;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+/* Pantallas grandes */
+@media (min-width: 600px) {
+
+    .nav-2 a {
+        font-weight: 500;
+    }
+
+    /* Altura en paginas */
+    .headerIndex,
+    .upcomingHeader,
+    .headerPast {
+        height: max-content;
+    }
+
+    .categoryIndex,
+    .categoryUpcoming,
+    .categoryPast {
+        height: 10vh;
+    }
+
+    .mainIndex,
+    .upcomingMain,
+    .mainPast {
+        height: max-content;
+    }
+
+    /* Altura en paginas */
+
+    .estilocard img {
+        height: 25vh;
+    }
 
     img[src="./assets/img/logoAmazingEvents.png"] {
         width: 15vw !important;
@@ -194,45 +238,6 @@ footer {
 
     .rrss img {
         width: 2vw;
-    }
-
-    header,
-    .contactHeader {
-        height: 22vh;
-    }
-
-    .category {
-        height: 8vh;
-        align-content: space-around;
-    }
-
-    main {
-        height: 63vh;
-    }
-
-    footer {
-        height: 5vh;
-    }
-
-    .tarjetas,
-    .tarjetas1 {
-        height: 25rem;
-    }
-
-    .contenedorTar{
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
-    }
-    .tarjetas1 {
-        display: flex;
-        margin-top: 2vh;
-        margin-bottom: 0vh;
-    }
-
-    .contactMain {
-        height: 73vh;
     }
 
     .tableContainer {
@@ -267,14 +272,6 @@ footer {
         background-color: rgb(94, 255, 0);
         width: 20vw;
         height: 20vw;
-    }
-
-    .detailsHeader {
-        height: 5vh;
-    }
-
-    .detailsFooter {
-        height: 5vh;
     }
 
     .botonBuscar {
