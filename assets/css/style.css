@@ -107,6 +107,7 @@ img[src="./assets/img/logoAmazingEvents.png"] {
 .tableContainer {
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 table {
