@@ -152,17 +152,9 @@ function pintarCategoriasT2() {
 }
 pintarCategoriasT2()
 
-function ganancias(arrayFiltro, comparador) {
-  let food = arrayFiltro.filter(event => event.category === `"${comparador}"`)
-  var gananciaFoodPast = []
-  for (let index = 0; index < food.length; index++) {
-    gananciaFoodPast = Number((food[index].estimate) * (food[index].price))
-  }
-  document.querySelector("#segundaTabla .food .ganancias").innerHTML = `$${gananciaFoodPast}`
-}
 
 //Ganancias de todos los eventos de una categoría
-function categoryGananciaT2(array) {
+async function categoryGananciaT2(array) {
   let food = array.filter(event => event.category === "Food")
   var gananciaFoodPast = []
   for (let index = 0; index < food.length; index++) {
