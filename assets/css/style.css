@@ -4,7 +4,6 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    /* border: 1px solid yellowgreen */
 }
 
 a p {
@@ -145,13 +144,9 @@ footer {
 
 }
 
-.filtro {
-    display: none;
-}
-
 .rrss img {
     width: 10vw;
-    border-radius: 50px;
+    /* border-radius: 50px; */
 }
 
 .cohorte {
@@ -172,21 +167,6 @@ footer {
     height: 90vh;
     justify-content: space-evenly;
     align-items: center;
-    flex-direction: column;
-}
-
-.cuadro1 {
-    background-color: aqua;
-    width: 40vh;
-    height: 40vh;
-}
-
-.cuadro2 {
-    display: flex;
-    background-color: rgb(94, 255, 0);
-    width: 40vh;
-    height: 40vh;
-    text-align: center;
     flex-direction: column;
 }
 
@@ -270,9 +250,6 @@ textarea,
     .mainPast {
         height: max-content;
     }
-
-    /* Altura en paginas */
-
 
     img[src="./assets/img/logoAmazingEvents.png"] {
         width: 15vw !important;
