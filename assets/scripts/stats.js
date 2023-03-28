@@ -171,6 +171,7 @@ async function porcentajeAsistenciaT2(array) {
 //-----------------------------------------------------------------------------------------------------------------------------------------
 //Tabla 3
 
+
 //Ganancias de todos los eventos de una categoría
 function calcularGananciaT3(array, guardar) {
   for (let index = 0; index < array.length; index++) {
@@ -233,6 +234,9 @@ function calcularPorcentajeT3(array, guardar) {
   let resultado = total/guardar.length
   return resultado.toFixed(2)
 }
+
+
+
 
 async function porcentajeAsistenciaT3(array) {
   let food = array.filter(event => event.category === "Food")
