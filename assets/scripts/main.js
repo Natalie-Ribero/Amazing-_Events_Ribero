@@ -1,30 +1,45 @@
-//Crear categorys
-let labels = document.getElementById('labels1');
-let categorias = data.events.map(event => event.category);
-let category = new Set(categorias);
-let checkbox = ''
-for (let event of category) {
-  checkbox +=
-    `<label> ${event}
-  <input id= '${event.replace(/\s+/g, '')}' type="checkbox">
-</label>`
+// let url = "./assets/scripts/amazing.json"
+let url = "https://mindhub-xj03.onrender.com/api/amazing"
+
+async function pedirData() {
+  try {
+    let respuesta = await fetch(url);
+    let data = await respuesta.json();
+    return data;
+
+  } catch (error) {
+    console.log(error);
+  }
+
 }
-labels.innerHTML = checkbox;
 
+async function iniciar() {
+  const data = await pedirData();
+  crearCheckbox(data.events);
+  sumarCardsArray(data.events);
+  filtroCheckbox(data.events);
+}
 
-//Traer los category por su id 
-let food = document.querySelector('#FoodFair');
-let museum = document.querySelector('#Museum');
-let party = document.querySelector('#CostumeParty');
-let concert = document.querySelector('#MusicConcert');
-let race = document.querySelector('#Race');
-let book = document.querySelector('#BookExchange');
-let cinema = document.querySelector('#Cinema');
-const divCards = document.getElementById('contenedorCards');
-let cards = ''
+iniciar();
+
+// Crear categorys
+function crearCheckbox(array) {
+  let categorias = array.map((event) => event.category);
+  let category = new Set(categorias);
+  let checkbox = '';
+  for (let event of category) {
+    checkbox += `<label>
+  <input type="checkbox" name="category" value="${event}">
+   ${event}
+</label>`
+  }
+  document.querySelector(".categoryIndex #categorias .labels").innerHTML =
+    checkbox;
+}
 
 //Pintar tarjetas con los datos de data
 function sumarCardsArray(array) {
+  let cards = "";
   for (let event of array) {
     cards += `<div class="card estilocard" style="width: 18rem;">
     <img src= ${event.image} alt="Imagen de evento">
@@ -37,43 +52,50 @@ function sumarCardsArray(array) {
     </div>
   </div>`
   }
+  document.getElementById("contenedorCards").innerHTML = cards;
 }
 
-sumarCardsArray(data.events);
+//Filtro de Categorias
+function filtroCheckbox(array) {
+  const checkboxes = document.querySelectorAll('[type="checkbox"]');
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      let categoryArray = [];
+      checkboxes.forEach((c) => {
+        if (c.checked) {
+          categoryArray.push(c.value);
+        }
+      });
+      let filteredEvents = array.filter((event) => {
+        return categoryArray.includes(event.category);
+      });
+      if (categoryArray.length) {
+        sumarCardsArray(filteredEvents);
+      } else {
+        sumarCardsArray(array);
+      }
+    });
+  });
+}
 
-divCards.innerHTML = cards;
-
-//Filtro de Categorys
-document.addEventListener('click', (e) => {
-
-  if (food.checked || museum.checked || party.checked || concert.checked || race.checked || book.checked || cinema.checked) {
-
-    let category = data.events.filter(event => (event.category === "Food Fair" && food.checked || event.category === "Museum" && museum.checked || event.category === "Costume Party" && party.checked || event.category === "Music Concert" && concert.checked || event.category === "Race" && race.checked || event.category === "Book Exchange" && book.checked || event.category === "Cinema" && cinema.checked))
-
-    cards = ''
-    sumarCardsArray(category);
-    divCards.innerHTML = cards;
-
-  } else {
-    cards = ''
-    sumarCardsArray(data.events);
-    divCards.innerHTML = cards;
-  }
-})
-
-
+//filtro buscador
 document.addEventListener("keyup", (e) => {
-
   if (e.target.matches("#buscador")) {
-
-    document.querySelectorAll(".estilocard").forEach(tarjeta => {
-
-      tarjeta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
-        ? tarjeta.classList.remove("filtro")
-        : tarjeta.classList.add("filtro")
-    })
+    let input = e.target.value.toLowerCase();
+    let cards = document.querySelectorAll(".estilocard");
+    cards.forEach((card) => {
+      let title = card.querySelector(".card-title").textContent.toLowerCase();
+      let description = card
+        .querySelector(".card-text")
+        .textContent.toLowerCase();
+      if (title.includes(input) || description.includes(input)) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
   }
-})
+});
 
 
 
